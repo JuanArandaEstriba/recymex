@@ -62,9 +62,9 @@ Se aplican a todas las láminas y conviene respetarlas al editar:
 Las láminas con tres tarjetas (02, 05, 06, 07, 10) usan esta estructura, de arriba abajo:
 
 1. **Título** a lo ancho, arriba.
-2. **La frase** protagonista, también a lo ancho.
-3. **Subdivisión:** a la izquierda las tres tarjetas apiladas (etiqueta a la izquierda,
-   texto a la derecha); a la derecha la ilustración, alineada más abajo.
+2. **Columna izquierda:** la frase protagonista y debajo las tres tarjetas apiladas
+   (verticales, con el título grande en negritas).
+3. **Columna derecha:** la ilustración, **centrada verticalmente**.
 
 ## Fotografía
 

@@ -84,6 +84,7 @@ b,strong{font-weight:600}
 .row{display:flex;justify-content:space-between;align-items:flex-end;gap:26px;flex-wrap:wrap}
 .split{display:grid;grid-template-columns:1fr 1fr;gap:clamp(22px,3.6vw,64px);flex:1;min-height:0;align-items:center}
 .split.narrow{grid-template-columns:.9fr 1.1fr}
+.split.ancha{grid-template-columns:.72fr 1.28fr}
 .col{display:flex;flex-direction:column;gap:clamp(13px,2.4vh,30px);min-width:0}
 .head{margin-bottom:clamp(10px,1.8vh,24px)}
 .num{font-family:'Barlow';font-weight:900;font-size:clamp(28px,4vw,66px);letter-spacing:-.045em;
@@ -293,17 +294,16 @@ b,strong{font-weight:600}
         font-size:clamp(16px,1.78vw,30px);max-width:54ch;flex:none}
 .frase b{font-weight:800;color:var(--azul)}
 .s.tinta .frase b,.s.azul .frase b{color:var(--tenue)}
-.abajo{display:grid;grid-template-columns:1.04fr .96fr;gap:clamp(18px,3vw,54px);
-       flex:1;min-height:0;align-items:end}
-.abajo .tarjetas{align-self:start}
-.abajo .viz{align-self:end;padding-bottom:clamp(2px,1vh,14px)}
+.abajo{display:grid;grid-template-columns:1.06fr .94fr;gap:clamp(20px,3.2vw,58px);
+       flex:1;min-height:0;align-items:center}
+.abajo .izq{display:flex;flex-direction:column;gap:clamp(11px,2vh,28px);min-width:0}
+.abajo .viz{align-self:center;padding-bottom:0}
 
 /* tarjetas apiladas: etiqueta a la izquierda, texto a la derecha */
-.tarjetas.una{gap:clamp(8px,1.25vh,17px)}
-.tarjetas.una .tj{flex-direction:row;align-items:flex-start;gap:clamp(10px,1.3vw,22px);
-  padding:clamp(13px,1.5vw,24px) clamp(14px,1.6vw,26px)}
-.tarjetas.una .tj .tjk{flex:0 0 clamp(112px,12.8vw,214px);font-size:clamp(12px,1.1vw,17.5px)}
-.tarjetas.una .tj .tjv{flex:1;min-width:0}
+.tarjetas.una{gap:clamp(9px,1.5vh,19px)}
+.tarjetas.una .tj{padding:clamp(14px,1.6vw,26px) clamp(15px,1.7vw,28px);gap:.42em}
+.tarjetas.una .tj .tjk{font-size:clamp(14px,1.44vw,24px)}
+.tarjetas.una .tj .tjv{font-size:clamp(11px,.95vw,15.5px)}
 
 /* fotografía real de fondo, bajo un velo oscuro */
 .s.confoto{isolation:isolate}
@@ -313,16 +313,14 @@ b,strong{font-weight:600}
   linear-gradient(103deg,rgba(23,26,31,.95) 0%,rgba(23,26,31,.89) 44%,rgba(23,26,31,.58) 100%))}
 
 /* imagen enmarcada (captura de la plataforma) */
-.marco{width:100%;max-width:580px;border-radius:12px;overflow:hidden;
+.marco{width:100%;max-width:none;border-radius:12px;overflow:hidden;
   border:1px solid #E2E8F0;box-shadow:0 20px 48px rgba(23,26,31,.16)}
 .s.tinta .marco,.s.azul .marco{border-color:rgba(255,255,255,.16);box-shadow:0 20px 48px rgba(0,0,0,.4)}
 .marco img{width:100%;height:auto;display:block}
 
 @media (max-width:900px){
-  .abajo{grid-template-columns:1fr;gap:14px;align-items:stretch}
-  .abajo .viz{align-self:auto;padding-bottom:0}
-  .tarjetas.una .tj{flex-direction:column;gap:.45em}
-  .tarjetas.una .tj .tjk{flex:none}
+  .abajo{grid-template-columns:1fr;gap:16px;align-items:stretch}
+  .abajo .viz{align-self:auto}
   .s.confoto::after{background:linear-gradient(180deg,rgba(23,26,31,.95) 0%,rgba(23,26,31,.9) 55%,rgba(23,26,31,.72) 100%)}
 }
 
@@ -340,7 +338,7 @@ b,strong{font-weight:600}
 .s.tinta .tj .tjn,.s.azul .tj .tjn{color:var(--tenue)}
 .tj .tjk{font-family:'Barlow',sans-serif;font-weight:800;font-size:clamp(13px,1.28vw,21px);
          letter-spacing:-.02em;line-height:1.12;display:block}
-.tj .tjv{font-size:clamp(10.5px,.9vw,14.5px);line-height:1.5;color:var(--gris);display:block}
+.tj .tjv{font-size:clamp(10.5px,.9vw,14.5px);line-height:1.5;color:#6B7C91;display:block}
 .s.tinta .tj .tjv,.s.azul .tj .tjv{color:rgba(255,255,255,.76)}
 .tj .tjg{flex:none;width:clamp(30px,2.6vw,42px);height:clamp(30px,2.6vw,42px);margin-bottom:.1em}
 .tj .tjg svg{width:100%;height:100%;display:block;overflow:hidden}
@@ -567,15 +565,16 @@ b,strong{font-weight:600}
     <span class="eyebrow r d1">Qué hacemos</span>
     <h2 class="disp xs r d2" style="margin-top:.14em;color:var(--azul);max-width:29ch">Una solución integral, de principio a fin.</h2>
   </div>
-  <div class="bloque">
-  <p class="frase r d3">Tu material sale de tu planta y regresa convertido en <b>un expediente que sostiene la operación</b> ante quien te pregunte.</p>
   <div class="abajo">
+  <div class="izq">
+    <p class="frase r d3">Tu material sale de tu planta y regresa convertido en <b>un expediente que sostiene la operación</b> ante quien te pregunte.</p>
     <div class="tarjetas una">
       <div class="tj r d5"><span class="tjk">Certeza jurídica</span><span class="tjv">Cada paso con sustento legal y documentado.</span></div>
       <div class="tj r d6"><span class="tjk">Certeza financiera</span><span class="tjv">Recuperas valor y deduces lo que corresponde.</span></div>
       <div class="tj r d7"><span class="tjk">Un solo responsable</span><span class="tjv">De tu planta a la disposición final. Nosotros.</span></div>
     </div>
-    <div class="viz r d4"><div class="stage">
+  </div>
+  <div class="viz r d4"><div class="stage">
         <svg viewBox="0 0 440 250" role="img" aria-label="Tres tipos de material entran y salen valor recuperado y expediente">
           <g opacity=".9">
             <rect x="10" y="30" width="96" height="34" rx="4" fill="none" stroke="var(--azul)" stroke-width="1.8" opacity=".45"/>
@@ -610,7 +609,6 @@ b,strong{font-weight:600}
           </g>
         </svg>
       </div></div>
-  </div>
 </div>
 </section>
 
@@ -690,15 +688,16 @@ b,strong{font-weight:600}
     <span class="eyebrow r d1">Servicio 01</span>
     <h2 class="disp xs r d2" style="margin-top:.1em;color:var(--azul)">Destrucción fiscal</h2>
   </div>
-  <div class="bloque">
-  <p class="frase r d3">Liberas almacén, lo sacas de tus libros y <b>lo deduces de impuestos</b>.</p>
   <div class="abajo">
+  <div class="izq">
+    <p class="frase r d3">Liberas almacén, lo sacas de tus libros y <b>lo deduces de impuestos</b>.</p>
     <div class="tarjetas una">
       <div class="tj r d5"><span class="tjk">Nos encargamos de todo</span><span class="tjv">De tu planta a la disposición final. Tú no mueves nada.</span></div>
       <div class="tj r d6"><span class="tjk">Acompañamiento legal</span><span class="tjv">Un abogado contigo todo el proceso, hasta tu declaración anual.</span></div>
       <div class="tj r d7"><span class="tjk">Expediente completo</span><span class="tjv">Hasta 400 hojas de cadena de custodia. Lleva aviso previo a la autoridad, normalmente 30 días.</span></div>
     </div>
-    <div class="viz r d4"><div class="stage">
+  </div>
+  <div class="viz r d4"><div class="stage">
         <svg viewBox="0 0 440 250" role="img" aria-label="El inventario se destruye y se convierte en expediente certificado">
           <g class="prensa" style="--dy:44px">
             <rect x="26" y="34" width="150" height="15" rx="3" fill="var(--azul)"/>
@@ -729,7 +728,6 @@ b,strong{font-weight:600}
           <text x="340" y="228" text-anchor="middle" font-family="Inter" font-weight="700" font-size="9" letter-spacing="1.5" fill="var(--azul)" opacity=".6">EXPEDIENTE</text>
         </svg>
       </div></div>
-  </div>
 </div>
 </section>
 
@@ -740,15 +738,16 @@ b,strong{font-weight:600}
     <span class="eyebrow r d1">Servicio 02</span>
     <h2 class="disp xs r d2" style="margin-top:.1em;color:var(--azul)">Residuos IMMEX</h2>
   </div>
-  <div class="bloque">
-  <p class="frase r d3">Bajas el saldo de tu importación temporal <b>con sustento jurídico</b>.</p>
   <div class="abajo">
+  <div class="izq">
+    <p class="frase r d3">Bajas el saldo de tu importación temporal <b>con sustento jurídico</b>.</p>
     <div class="tarjetas una">
       <div class="tj r d5"><span class="tjk">Estudio previo</span><span class="tjv">Antes de ejecutar dictaminamos factibilidad y viabilidad, con sustento legal en cada opción.</span></div>
       <div class="tj r d6"><span class="tjk">Comercio exterior</span><span class="tjv">Pedimentos, fracción arancelaria, unidad de medida y temporalidad. Lo revisamos nosotros.</span></div>
       <div class="tj r d7"><span class="tjk">Certificación propia</span><span class="tjv">Empresa IMMEX con certificación IVA-IEPS. La corresponsabilidad solidaria la asumimos.</span></div>
     </div>
-    <div class="viz r d4"><div class="stage">
+  </div>
+  <div class="viz r d4"><div class="stage">
         <svg viewBox="0 0 440 250" role="img" aria-label="Primero se dictamina y después se ejecuta el descargo">
           <text x="24" y="40" font-family="Inter" font-weight="700" font-size="9.5" letter-spacing="1.6" fill="var(--azul)" opacity=".62">SALDO IMMEX</text>
           <rect x="24" y="54" width="392" height="26" rx="4" fill="var(--azul)" opacity=".12"/>
@@ -778,7 +777,6 @@ b,strong{font-weight:600}
           </g>
         </svg>
       </div></div>
-  </div>
 </div>
 </section>
 
@@ -789,15 +787,16 @@ b,strong{font-weight:600}
     <span class="eyebrow r d1">Servicio 03</span>
     <h2 class="disp xs r d2" style="margin-top:.1em;color:var(--azul)">Gestión de residuos</h2>
   </div>
-  <div class="bloque">
-  <p class="frase r d3">Recolección y disposición <b>con todos los permisos en regla</b>.</p>
   <div class="abajo">
+  <div class="izq">
+    <p class="frase r d3">Recolección y disposición <b>con todos los permisos en regla</b>.</p>
     <div class="tarjetas una">
       <div class="tj r d5"><span class="tjk">La frecuencia que necesites</span><span class="tjv">Diaria, semanal, periódica o mensual. Tenemos el equipo para sostenerla.</span></div>
       <div class="tj r d6"><span class="tjk">Aplicación de seguimiento</span><span class="tjv">Consultas evidencia, reportes y manifiestos de cada recolección.</span></div>
       <div class="tj r d7"><span class="tjk">Manejo correcto</span><span class="tjv">Tratamiento y disposición final conforme a norma, con manifiesto de cada entrega.</span></div>
     </div>
-    <div class="viz r d4"><div class="stage">
+  </div>
+  <div class="viz r d4"><div class="stage">
         <svg viewBox="0 0 440 240" role="img" aria-label="Recolección recurrente con seguimiento en aplicación">
           <rect x="34" y="70" width="106" height="112" rx="5" fill="none" stroke="var(--azul)" stroke-width="2.4"/>
           <rect class="llenar" x="40" y="76" width="94" height="100" rx="3" fill="var(--azul)" opacity=".3"/>
@@ -822,7 +821,6 @@ b,strong{font-weight:600}
           <text x="382" y="208" text-anchor="middle" font-family="Inter" font-weight="700" font-size="9" letter-spacing="1.4" fill="var(--azul)" opacity=".6">SEGUIMIENTO</text>
         </svg>
       </div></div>
-  </div>
 </div>
 </section>
 
@@ -857,7 +855,7 @@ b,strong{font-weight:600}
     <span class="eyebrow r d1">Qué te entregamos</span>
     <h2 class="disp xs r d2" style="margin-top:.14em;color:var(--azul);max-width:18ch">Nuestros expedientes.</h2>
   </div>
-  <div class="split narrow">
+  <div class="split ancha">
     <div class="col">
       <div class="spec r d3"><span class="tick"></span><span>Actas y certificado de destrucción</span></div>
       <div class="spec r d4"><span class="tick"></span><span>Firmas con <b>fecha cierta</b></span></div>
@@ -877,45 +875,59 @@ b,strong{font-weight:600}
     <span class="eyebrow r d1">Cobertura</span>
     <h2 class="disp xs r d2" style="margin-top:.14em;max-width:22ch">Alcance nacional.</h2>
   </div>
-  <div class="bloque">
-  <p class="frase r d3">Cada destrucción y cada ruta de recolección <b>se diseña para tu caso</b>.</p>
   <div class="abajo">
+  <div class="izq">
+    <p class="frase r d3">Cada destrucción y cada ruta de recolección <b>se diseña para tu caso</b>.</p>
     <div class="tarjetas una">
       <div class="tj r d5"><span class="tjk">Equipo propio</span><span class="tjv">Te decimos quién va a tu planta antes de firmar.</span></div>
       <div class="tj r d6"><span class="tjk">Gestores autorizados</span><span class="tjv">Donde no llegamos directo, operamos con gestores autorizados: transporte, tratamiento o destino final.</span></div>
       <div class="tj r d7"><span class="tjk">Responsabilidad nuestra</span><span class="tjv">La mantenemos hasta el destino final. No se diluye en la cadena.</span></div>
     </div>
-    <div class="viz r d4"><div class="stage">
-        <svg viewBox="0 0 440 250" role="img" aria-label="Cobertura en toda la República Mexicana">
-          <g fill="var(--blanco)" fill-opacity=".14" stroke="var(--blanco)" stroke-width="2" stroke-linejoin="round">
-            <path class="trazar" style="--len:1400"
-              d="M95 52 L150 44 L196 46 L214 62 L262 58 L300 72 L314 98 L324 124 L338 148 L354 154
-                 L374 142 L402 134 L416 148 L412 170 L394 182 L370 176 L354 164
-                 L332 178 L316 188 L298 194 L278 198 L258 188 L232 176 L206 160 L182 144
-                 L162 126 L142 108 L122 84 L106 64 Z"/>
-            <path class="trazar st1" style="--len:520"
-              d="M60 46 L78 48 L96 76 L116 108 L130 140 L126 148 L116 142 L104 116 L84 84 L66 58 Z"/>
-          </g>
+  </div>
+  <div class="viz r d4"><div class="stage">
+        <svg viewBox="22 15 404 258" role="img" aria-label="Mapa de la República Mexicana con la base en Jalisco">
+          <!-- contorno de México: proyección lineal de coordenadas reales
+               lon 118.4W..86.7W -> x 20..420 · lat 32.7N..14.0N -> y 22..268 -->
+          <path d="M36 25 L65 25 L82 32 L113 40 L149 40 L149 34 L171 34
+                   L197 64 L216 68 L241 67 L258 90 L288 111
+                   C284 132 279 145 279 160 C288 178 296 190 301 200
+                   L323 214 C336 216 348 212 356 208 L372 191 L373 177
+                   C377 172 379 171 382 172 C396 168 408 166 416 168
+                   C414 178 412 182 411 187 C407 196 403 203 400 209
+                   L389 218 L366 218 L366 241 L351 261 L348 259
+                   C330 252 320 246 313 240 C303 244 294 245 289 244
+                   C273 239 260 235 253 231 L233 220
+                   C218 214 205 208 198 202 C192 194 188 186 186 181
+                   C180 168 174 156 171 147 C158 135 146 124 138 115
+                   C129 104 120 93 115 85 C104 70 90 52 82 40
+                   L67 34 L65 44 C71 54 77 64 81 71 C87 79 93 87 97 93
+                   C101 99 106 105 109 110 C114 119 119 128 122 135
+                   L127 151 L123 144 C112 138 105 133 100 129
+                   C92 119 86 108 81 101 C74 95 68 89 64 85
+                   C59 74 55 64 53 58 C49 49 45 39 43 33 Z"
+                fill="var(--blanco)" fill-opacity=".24"
+                stroke="var(--blanco)" stroke-width="2.3" stroke-linejoin="round" stroke-linecap="round"/>
+          <!-- plazas donde ya se opera -->
           <g fill="var(--blanco)">
-            <circle class="nodo" cx="152" cy="62" r="4.6"/>
-            <circle class="nodo st2" cx="228" cy="72" r="4.6"/>
-            <circle class="nodo st4" cx="292" cy="96" r="4.6"/>
-            <circle class="nodo st1" cx="248" cy="140" r="4.6"/>
-            <circle class="nodo st3" cx="318" cy="160" r="4.6"/>
-            <circle class="nodo st5" cx="392" cy="156" r="4.6"/>
-            <circle class="nodo st2" cx="168" cy="120" r="4.6"/>
-            <circle class="nodo st4" cx="106" cy="88" r="4.6"/>
+            <circle class="nodo" cx="60" cy="30" r="4.8"/>
+            <circle class="nodo st3" cx="171" cy="44" r="4.8"/>
+            <circle class="nodo st1" cx="248" cy="115" r="4.8"/>
+            <circle class="nodo st4" cx="159" cy="126" r="4.8"/>
+            <circle class="nodo st2" cx="263" cy="197" r="4.8"/>
+            <circle class="nodo st5" cx="341" cy="216" r="4.8"/>
+            <circle class="nodo st3" cx="383" cy="176" r="4.8"/>
+            <circle class="nodo st1" cx="200" cy="202" r="4.8"/>
           </g>
+          <!-- base: Jalisco -->
           <g>
-            <circle class="alcance" cx="212" cy="146" r="112" fill="none" stroke="var(--blanco)" stroke-width="1.8"/>
-            <circle class="alcance st2" cx="212" cy="146" r="112" fill="none" stroke="var(--blanco)" stroke-width="1.8"/>
+            <circle class="alcance" cx="210" cy="180" r="124" fill="none" stroke="var(--blanco)" stroke-width="1.7"/>
+            <circle class="alcance st2" cx="210" cy="180" r="124" fill="none" stroke="var(--blanco)" stroke-width="1.7"/>
           </g>
-          <circle cx="212" cy="146" r="7.5" fill="var(--blanco)"/>
-          <text x="226" y="150" font-family="Inter" font-weight="800" font-size="9" letter-spacing="1.5" fill="var(--blanco)" opacity=".92">BASE · JALISCO</text>
+          <circle cx="210" cy="180" r="8" fill="var(--blanco)"/>
+          <text x="222" y="184" font-family="Inter" font-weight="800" font-size="9.5" letter-spacing="1.4" fill="var(--blanco)">JALISCO</text>
         </svg>
         <span class="cap" style="opacity:.72">operamos en toda la república</span>
       </div></div>
-  </div>
 </div>
 </section>
 
