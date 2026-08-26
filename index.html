@@ -120,6 +120,10 @@ b,strong{font-weight:600}
 /* 3 fuentes/columnas con encabezado grande */
 .srcs{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,2.4vw,42px);flex:1;align-content:center}
 .src{border-top:2.5px solid var(--azul);padding-top:clamp(11px,1.5vh,20px)}
+.s.azul .src{border-top-color:var(--blanco)}
+.s.azul .src .sk{color:var(--blanco)}
+.s.tinta .src{border-top-color:var(--tenue)}
+.s.tinta .src .sk{color:var(--tenue)}
 .src .sk{font-family:'Barlow';font-weight:700;font-size:clamp(14.5px,1.6vw,26px);letter-spacing:-.025em;
          color:var(--azul);line-height:1.08;display:block;margin-bottom:.5em}
 .src .sm2{font-family:'Barlow';font-weight:900;font-size:clamp(17px,1.9vw,30px);letter-spacing:-.03em;
@@ -275,6 +279,51 @@ b,strong{font-weight:600}
 .st1{animation-delay:.5s}.st2{animation-delay:1s}.st3{animation-delay:1.5s}
 .st4{animation-delay:2s}.st5{animation-delay:2.5s}
 
+
+/* ===== RONDA 3 ===== */
+/* alcance: anillos que se expanden (cobertura) */
+@keyframes alcance{0%{transform:scale(.15);opacity:0}18%{opacity:.55}100%{transform:scale(1);opacity:0}}
+.alcance{transform-box:fill-box;transform-origin:center;animation:alcance 4.6s cubic-bezier(.2,.6,.3,1) infinite}
+
+/* giro continuo suave (ciclo de recolección) */
+@keyframes girar{to{transform:rotate(360deg)}}
+.girar{transform-box:fill-box;transform-origin:center;animation:girar 9s linear infinite}
+
+/* glifo animado dentro de la tarjeta de servicio */
+.hgl{flex:none;width:clamp(46px,4.2vw,66px);height:clamp(46px,4.2vw,66px);margin-bottom:.3em}
+.hgl svg{width:100%;height:100%;display:block;overflow:hidden}
+
+/* stats en cuatro columnas */
+.stats.cuatro{grid-template-columns:repeat(4,1fr);gap:clamp(11px,1.7vw,30px)}
+.stats.cuatro .sv2{font-size:clamp(24px,3.3vw,54px)}
+
+/* badges en cuatro */
+.badges.cuatro{grid-template-columns:repeat(4,1fr)}
+
+/* FORMULARIO (lámina de cotización) */
+.form{display:grid;grid-template-columns:1fr 1fr;gap:clamp(10px,1.4vw,22px) clamp(18px,2.6vw,46px);
+      flex:1;align-content:center}
+.fld{display:flex;flex-direction:column;gap:.5em;padding-bottom:clamp(7px,1vh,12px);
+     border-bottom:1.5px solid #E2E8F0}
+.s.tinta .fld{border-bottom-color:rgba(255,255,255,.18)}
+.fld .fk{font-size:clamp(9px,.74vw,11.5px);font-weight:700;letter-spacing:.16em;text-transform:uppercase;
+         color:var(--gris);display:flex;align-items:center;gap:.6em}
+.fld .fv{font-family:'Barlow',sans-serif;font-weight:700;font-size:clamp(13px,1.25vw,20px);
+         letter-spacing:-.015em;line-height:1.18}
+.fld.req{border-bottom-color:var(--azul)}
+.fld.req .fk{color:var(--azul)}
+.fld .req-t{font-size:clamp(8px,.66vw,10px);font-weight:800;letter-spacing:.1em;padding:.18em .5em;
+  border-radius:3px;background:var(--azul);color:#fff}
+
+@media (max-width:1200px){
+  .badges.cuatro{grid-template-columns:repeat(2,1fr)}
+  .stats.cuatro{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:900px){
+  .form{grid-template-columns:1fr}
+  .badges.cuatro,.stats.cuatro{grid-template-columns:1fr}
+}
+
 /* hueco para fotografía real (misma columna que las ilustraciones) */
 .foto{width:100%;border-radius:10px;overflow:hidden;background:#E2E8F0;
   aspect-ratio:4/3;display:grid;place-items:center}
@@ -427,13 +476,13 @@ b,strong{font-weight:600}
   <div class="split narrow" style="margin-top:clamp(12px,2vh,28px)">
     <div class="col">
       <span class="eyebrow r d2">Qué hacemos</span>
-      <h2 class="disp xs r d3" style="color:var(--azul);max-width:14ch">Nos llevamos el problema completo.</h2>
-      <p class="lede r d4" style="opacity:.75">Recolectamos, destruimos o disponemos, y te entregamos el respaldo. <b>Un solo proveedor</b> para el inventario que ya no se mueve, la merma de tu programa IMMEX y los residuos que generas todos los días.</p>
-      <p class="mini r d6" style="max-width:44ch">Y donde hay valor recuperable, lo recuperamos: <b>85%</b> de lo que tratamos regresa a la economía circular.</p>
+      <h2 class="disp xs r d3" style="color:var(--azul);max-width:15ch">Una solución integral, de principio a fin.</h2>
+      <div class="blk hero r d4"><span class="bl">Certeza jurídica</span><span class="bt">Cada paso con sustento legal y documentado.</span></div>
+      <div class="blk hero r d5"><span class="bl">Certeza financiera</span><span class="bt">Recuperas valor y deduces lo que corresponde.</span></div>
+      <div class="blk hero r d6"><span class="bl">Un solo responsable</span><span class="bt">Del material en tu planta a la disposición final.</span></div>
     </div>
     <div class="viz r d5"><div class="stage">
       <svg viewBox="0 0 440 250" role="img" aria-label="Tres tipos de material entran y salen material valorizado más expediente">
-        <!-- entradas -->
         <g opacity=".9">
           <rect x="10" y="30" width="96" height="34" rx="4" fill="none" stroke="var(--azul)" stroke-width="1.8" opacity=".45"/>
           <text x="58" y="52" text-anchor="middle" font-family="Inter" font-weight="700" font-size="9" letter-spacing="1.1" fill="var(--azul)">INVENTARIO</text>
@@ -442,28 +491,24 @@ b,strong{font-weight:600}
           <rect x="10" y="178" width="96" height="34" rx="4" fill="none" stroke="var(--azul)" stroke-width="1.8" opacity=".45"/>
           <text x="58" y="200" text-anchor="middle" font-family="Inter" font-weight="700" font-size="9" letter-spacing="1.1" fill="var(--azul)">RESIDUOS</text>
         </g>
-        <!-- rutas -->
         <path class="trazar" style="--len:150" d="M112 47 C150 47 150 121 186 121" fill="none" stroke="var(--azul)" stroke-width="1.6" opacity=".3"/>
         <path class="trazar st1" style="--len:90" d="M112 121 H186" fill="none" stroke="var(--azul)" stroke-width="1.6" opacity=".3"/>
         <path class="trazar st2" style="--len:150" d="M112 195 C150 195 150 121 186 121" fill="none" stroke="var(--azul)" stroke-width="1.6" opacity=".3"/>
-        <!-- material viajando -->
         <circle class="converger" style="--fx:-74px" cx="186" cy="47" r="5.5" fill="var(--azul)"/>
         <circle class="converger st1" style="--fx:-74px" cx="186" cy="121" r="5.5" fill="var(--azul)"/>
         <circle class="converger st2" style="--fx:-74px" cx="186" cy="195" r="5.5" fill="var(--azul)"/>
-        <!-- planta -->
         <g class="latir">
           <rect x="188" y="88" width="70" height="66" rx="8" fill="var(--azul)"/>
           <image href="data:image/png;base64,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" x="203" y="103" width="40" height="40" opacity=".95"/>
         </g>
         <text x="223" y="174" text-anchor="middle" font-family="Inter" font-weight="800" font-size="9" letter-spacing="1.6" fill="var(--azul)">RECYMEX</text>
-        <!-- salidas -->
         <path d="M264 108 H316 M316 108 l-8 -6 M316 108 l-8 6" stroke="var(--azul)" stroke-width="1.7" fill="none" opacity=".4" stroke-linecap="round"/>
         <path d="M264 136 H316 M316 136 l-8 -6 M316 136 l-8 6" stroke="var(--azul)" stroke-width="1.7" fill="none" opacity=".4" stroke-linecap="round"/>
         <g class="gota">
           <rect x="324" y="66" width="106" height="60" rx="6" fill="var(--azul)" opacity=".16"/>
           <rect x="324" y="66" width="106" height="60" rx="6" fill="none" stroke="var(--azul)" stroke-width="2"/>
-          <text x="377" y="92" text-anchor="middle" font-family="Inter" font-weight="700" font-size="9" letter-spacing="1.1" fill="var(--azul)">MATERIAL</text>
-          <text x="377" y="108" text-anchor="middle" font-family="Inter" font-weight="700" font-size="9" letter-spacing="1.1" fill="var(--azul)">VALORIZADO</text>
+          <text x="377" y="92" text-anchor="middle" font-family="Inter" font-weight="700" font-size="9" letter-spacing="1.1" fill="var(--azul)">VALOR</text>
+          <text x="377" y="108" text-anchor="middle" font-family="Inter" font-weight="700" font-size="9" letter-spacing="1.1" fill="var(--azul)">RECUPERADO</text>
         </g>
         <g class="gota st2">
           <rect x="324" y="140" width="106" height="60" rx="6" fill="none" stroke="var(--azul)" stroke-width="2"/>
@@ -471,28 +516,28 @@ b,strong{font-weight:600}
           <text x="377" y="216" text-anchor="middle" font-family="Inter" font-weight="700" font-size="9" letter-spacing="1.3" fill="var(--azul)">EXPEDIENTE</text>
         </g>
       </svg>
-      <span class="cap">entra el problema · sale resuelto</span>
+      <span class="cap">entra el material · sale resuelto</span>
     </div></div>
   </div>
 </section>
 
-<!-- 03 · POR QUÉ NOSOTROS -->
+<!-- 03 · AUTORIZACIONES Y CAPACIDAD -->
 <section class="s azul">
   <div class="head">
-    <span class="eyebrow r d1">Por qué nosotros</span>
-    <h2 class="disp xs r d2" style="margin-top:.14em;max-width:20ch">No somos un flete. Somos la empresa autorizada.</h2>
+    <span class="eyebrow r d1">Con qué respaldo</span>
+    <h2 class="disp xs r d2" style="margin-top:.14em;max-width:20ch">Autorizaciones, permisos y equipo propio.</h2>
   </div>
-  <div class="badges">
-    <div class="bg r d3"><span class="bgn">SAT</span><span class="bgd">Servicio de Administración Tributaria</span></div>
-    <div class="bg r d4"><span class="bgn">SHCP</span><span class="bgd">Secretaría de Hacienda y Crédito Público</span></div>
-    <div class="bg r d5"><span class="bgn">Programa IMMEX</span><span class="bgd">Manufactura, maquila y exportación</span></div>
-    <div class="bg r d6"><span class="bgn">Certificación IVA e IEPS</span><span class="bgd">Registro de empresas certificadas</span></div>
-    <div class="bg r d7"><span class="bgn">SEMADET Jalisco</span><span class="bgd">Medio Ambiente y Desarrollo Territorial</span></div>
+  <div class="badges cuatro">
+    <div class="bg r d3"><span class="bgn">Programa IMMEX</span><span class="bgd">Manufactura, maquila y exportación</span></div>
+    <div class="bg r d4"><span class="bgn">Certificación IVA e IEPS</span><span class="bgd">Registro de empresas certificadas</span></div>
+    <div class="bg r d5"><span class="bgn">Permisos ambientales</span><span class="bgd">Recolección, tratamiento y disposición final</span></div>
+    <div class="bg r d6"><span class="bgn">Equipo legal especializado</span><span class="bgd">Acompañamiento fiscal y normativo propio</span></div>
   </div>
-  <div class="row r d8" style="border-top:1px solid rgba(255,255,255,.32);padding-top:clamp(11px,1.8vh,22px);margin-top:clamp(10px,1.6vh,22px)">
-    <div class="mini" style="max-width:26ch"><b>+256 tipos</b> de residuo de manejo especial autorizados.</div>
-    <div class="mini" style="max-width:28ch">Menos de <b>3,200 empresas</b> en México tienen IMMEX + IVA-IEPS. Somos una.</div>
-    <div class="mini" style="max-width:24ch"><b>+14,000 toneladas</b> tratadas y <b>+100 generadores</b> atendidos.</div>
+  <div class="stats cuatro" style="flex:0 0 auto;margin-top:clamp(14px,2.4vh,34px)">
+    <div class="stat r d7"><span class="sv2">+256</span><span class="sl2">Tipos de residuo autorizados</span></div>
+    <div class="stat r d7"><span class="sv2">+14,000</span><span class="sl2">Toneladas tratadas</span></div>
+    <div class="stat r d8"><span class="sv2">+100</span><span class="sl2">Generadores atendidos</span></div>
+    <div class="stat r d8"><span class="sv2">85%</span><span class="sl2">De vuelta a economía circular</span></div>
   </div>
 </section>
 
@@ -500,26 +545,44 @@ b,strong{font-weight:600}
 <section class="s" id="hub">
   <div class="head">
     <span class="eyebrow r d1">Nuestros servicios</span>
-    <h2 class="disp xs r d2" style="margin-top:.14em;color:var(--azul);max-width:16ch">¿Cuál de los tres es tu caso?</h2>
-    <p class="mini r d3" style="margin-top:.9em;max-width:62ch">Pícale al que aplica y saltamos directo. <b>No todos llevan trámite fiscal</b> — eso depende de lo que tengas, y lo definimos nosotros.</p>
+    <h2 class="disp xs r d2" style="margin-top:.14em;color:var(--azul);max-width:14ch">¿Cuál es tu caso?</h2>
   </div>
   <div class="hub">
     <button class="hcard r d4" onclick="irA('destruccion')">
+      <span class="hgl"><svg viewBox="0 0 60 60" aria-hidden="true">
+        <g class="prensa" style="--dy:9px"><rect x="8" y="4" width="44" height="6" rx="2" fill="var(--azul)"/></g>
+        <g class="comprimir"><rect x="14" y="20" width="32" height="26" rx="2" fill="var(--azul)" opacity=".28"/>
+          <rect x="14" y="20" width="32" height="26" rx="2" fill="none" stroke="var(--azul)" stroke-width="2"/></g>
+        <rect x="8" y="50" width="44" height="5" rx="2" fill="var(--azul)"/>
+      </svg></span>
       <span class="hk">Destrucción fiscal</span>
       <span class="hq">"Tengo inventario que ya no se mueve."</span>
-      <span class="hv">Producto obsoleto, dañado o caducado. Lo destruimos y, si tiene factura, lo deduces.</span>
+      <span class="hv">Lo destruimos con toda la normativa y lo deduces de impuestos.</span>
       <span class="hgo">Ver</span>
     </button>
     <button class="hcard r d5" onclick="irA('immex')">
+      <span class="hgl"><svg viewBox="0 0 60 60" aria-hidden="true">
+        <rect x="6" y="14" width="48" height="11" rx="3" fill="var(--azul)" opacity=".18"/>
+        <rect class="vaciar" x="6" y="14" width="48" height="11" rx="3" fill="var(--azul)"/>
+        <path d="M40 34 v20" stroke="var(--azul)" stroke-width="2" stroke-dasharray="3 4" opacity=".55"/>
+        <g class="converger" style="--fx:-26px"><rect x="26" y="36" width="18" height="16" rx="2" fill="var(--azul)" opacity=".55"/></g>
+      </svg></span>
       <span class="hk">Residuos IMMEX</span>
       <span class="hq">"Tengo saldo de importación temporal."</span>
-      <span class="hv">Scrap y merma bajo programa IMMEX. Bajamos el saldo antes de que venza la temporalidad.</span>
+      <span class="hv">Bajamos el saldo con estudio previo y sustento jurídico.</span>
       <span class="hgo">Ver</span>
     </button>
     <button class="hcard r d6" onclick="irA('residuos')">
+      <span class="hgl"><svg viewBox="0 0 60 60" aria-hidden="true">
+        <g class="girar" opacity=".5">
+          <circle cx="30" cy="30" r="24" fill="none" stroke="var(--azul)" stroke-width="2.4" stroke-dasharray="26 14"/>
+        </g>
+        <rect x="20" y="20" width="20" height="22" rx="2" fill="none" stroke="var(--azul)" stroke-width="2"/>
+        <rect class="llenar" x="23" y="23" width="14" height="16" rx="1" fill="var(--azul)" opacity=".55"/>
+      </svg></span>
       <span class="hk">Gestión de residuos</span>
-      <span class="hq">"Se me acumulan los desechos."</span>
-      <span class="hv">Recolección recurrente y disposición conforme a norma. Este arranca en días.</span>
+      <span class="hq">"Se me acumulan los residuos."</span>
+      <span class="hv">Recolección y disposición con todos los permisos en regla.</span>
       <span class="hgo">Ver</span>
     </button>
   </div>
@@ -534,13 +597,14 @@ b,strong{font-weight:600}
   </div>
   <div class="split">
     <div class="col">
-      <div class="blk hero r d3"><span class="bl">Para qué sirve</span><span class="bt">Liberas el almacén, sacas el inventario muerto de tus libros y lo deduces.</span></div>
-      <div class="blk r d4"><span class="bl">Cómo lo hacemos</span><span class="bt">Recolectamos en tu planta, destruimos por el método que corresponda al material —triturado, prensado, tratamiento— y te entregamos el certificado con todo el respaldo.</span></div>
-      <div class="blk r d5"><span class="bl">Lo que casi nadie te aclara</span><span class="bt">Para deducir hace falta la factura del producto y un aviso previo a la autoridad. <b>¿No tienes factura?</b> Va la modalidad <b>simple</b>: misma destrucción certificada, sin trámite fiscal — para proteger marca, calidad o confidencialidad.</span></div>
+      <div class="blk hero r d3"><span class="bt">Liberas almacén, lo sacas de tus libros y lo <b>deduces de impuestos</b>.</span></div>
+      <div class="blk r d4"><span class="bl">Nos encargamos de todo</span><span class="bt">De tu planta a la disposición final. Tú no mueves nada.</span></div>
+      <div class="blk r d5"><span class="bl">Acompañamiento legal</span><span class="bt">Un abogado contigo todo el proceso, hasta tu declaración anual.</span></div>
+      <div class="blk r d6"><span class="bl">Expediente</span><span class="bt">Hasta <b>400 hojas</b> con la cadena de custodia completa.</span></div>
+      <p class="mini r d8">Lleva aviso previo a la autoridad, normalmente de 30 días.</p>
     </div>
-    <div class="viz r d6"><div class="stage">
-      <svg viewBox="0 0 440 250" role="img" aria-label="El producto se prensa y se emite el certificado">
-        <!-- prensa -->
+    <div class="viz r d7"><div class="stage">
+      <svg viewBox="0 0 440 250" role="img" aria-label="El inventario se destruye, se certifica y se deduce">
         <g class="prensa" style="--dy:44px">
           <rect x="26" y="34" width="150" height="15" rx="3" fill="var(--azul)"/>
           <rect x="90" y="14" width="22" height="22" rx="2" fill="var(--azul)" opacity=".55"/>
@@ -552,21 +616,24 @@ b,strong{font-weight:600}
           <rect x="40" y="98" width="122" height="94" rx="3" fill="none" stroke="var(--azul)" stroke-width="2"/>
         </g>
         <rect x="26" y="198" width="150" height="11" rx="3" fill="var(--azul)"/>
-        <text x="101" y="228" text-anchor="middle" font-family="Inter" font-weight="700" font-size="9" letter-spacing="1.5" fill="var(--azul)" opacity=".6">DESTRUCCIÓN</text>
-        <!-- ruta al certificado -->
-        <path class="trazar" style="--len:70" d="M196 121 H262" fill="none" stroke="var(--azul)" stroke-width="1.8" opacity=".35" stroke-dasharray="70"/>
+        <text x="101" y="228" text-anchor="middle" font-family="Inter" font-weight="700" font-size="9" letter-spacing="1.5" fill="var(--azul)" opacity=".6">INVENTARIO</text>
+        <path class="trazar" style="--len:66" d="M196 121 H262" fill="none" stroke="var(--azul)" stroke-width="1.8" opacity=".35"/>
         <path d="M262 121 l-9 -6 M262 121 l-9 6" stroke="var(--azul)" stroke-width="1.8" fill="none" opacity=".35" stroke-linecap="round"/>
-        <!-- certificado -->
-        <rect x="274" y="52" width="140" height="146" rx="7" fill="var(--azul)" opacity=".08"/>
-        <rect x="274" y="52" width="140" height="146" rx="7" fill="none" stroke="var(--azul)" stroke-width="2.2"/>
-        <path d="M296 84 h96 M296 104 h96 M296 124 h60" stroke="var(--azul)" stroke-width="2.2" opacity=".34" stroke-linecap="round"/>
-        <g class="sellar">
-          <circle cx="344" cy="164" r="23" fill="var(--azul)"/>
-          <path d="M333 164 l7 7 l14 -15" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        <g>
+          <rect class="apilar st3" x="286" y="46" width="132" height="140" rx="6" fill="#fff" stroke="var(--azul)" stroke-width="1.6" opacity=".5"/>
+          <rect class="apilar st2" x="280" y="54" width="132" height="140" rx="6" fill="#fff" stroke="var(--azul)" stroke-width="1.8" opacity=".75"/>
+          <g class="apilar st1">
+            <rect x="274" y="62" width="132" height="140" rx="6" fill="#fff" stroke="var(--azul)" stroke-width="2.2"/>
+            <path d="M294 92 h92 M294 110 h92 M294 128 h56" stroke="var(--azul)" stroke-width="2.2" opacity=".32" stroke-linecap="round"/>
+          </g>
         </g>
-        <text x="344" y="228" text-anchor="middle" font-family="Inter" font-weight="700" font-size="9" letter-spacing="1.5" fill="var(--azul)" opacity=".6">CERTIFICADO</text>
+        <g class="sellar">
+          <circle cx="374" cy="168" r="23" fill="var(--azul)"/>
+          <path d="M363 168 l7 7 l14 -15" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        </g>
+        <text x="340" y="228" text-anchor="middle" font-family="Inter" font-weight="700" font-size="9" letter-spacing="1.5" fill="var(--azul)" opacity=".6">EXPEDIENTE Y CERTIFICADO</text>
       </svg>
-      <span class="cap">se destruye · se certifica · se deduce</span>
+      <span class="cap">se destruye · se documenta · se deduce</span>
     </div></div>
   </div>
 </section>
@@ -580,34 +647,43 @@ b,strong{font-weight:600}
   </div>
   <div class="split">
     <div class="col">
-      <div class="blk hero r d3"><span class="bt">Bajas el saldo de tu importación temporal antes de que se te venza.</span></div>
-      <div class="blk r d4"><span class="bl">Cómo lo hacemos</span><span class="bt">Gestionamos el descargo cumpliendo lo aduanal, lo fiscal y lo ambiental a la vez. Somos <b>empresa IMMEX con certificación IVA-IEPS</b>: la corresponsabilidad solidaria la asumimos con papel, no de palabra.</span></div>
-      <div class="blk r d5"><span class="bl">Por qué importa el detalle</span><span class="bt">Pedimentos, fracción arancelaria, unidad de medida y fecha de vencimiento definen el esquema. Aquí <b>no vamos por el aviso al SAT</b>: es otra ruta. Por eso arrancamos con un estudio previo.</span></div>
+      <div class="blk hero r d3"><span class="bt">Bajas el saldo de tu importación temporal <b>con sustento jurídico</b>.</span></div>
+      <div class="blk r d4"><span class="bl">Estudio previo</span><span class="bt">Antes de ejecutar verificamos <b>factibilidad y viabilidad</b>, con sustento legal en cada opción.</span></div>
+      <div class="blk r d5"><span class="bl">Equipo de comercio exterior</span><span class="bt">Pedimentos, fracción arancelaria, unidad de medida y temporalidad. Lo revisamos nosotros.</span></div>
+      <div class="blk r d6"><span class="bl">Certificación propia</span><span class="bt">Empresa IMMEX con certificación IVA-IEPS. La corresponsabilidad solidaria la asumimos.</span></div>
     </div>
-    <div class="viz r d6"><div class="stage">
-      <svg viewBox="0 0 440 250" role="img" aria-label="El saldo de importación temporal baja al descargar la merma">
-        <!-- barra de saldo -->
-        <text x="24" y="42" font-family="Inter" font-weight="700" font-size="9.5" letter-spacing="1.6" fill="var(--azul)" opacity=".62">SALDO IMMEX</text>
-        <rect x="24" y="56" width="392" height="26" rx="4" fill="var(--azul)" opacity=".12"/>
-        <rect class="vaciar" x="24" y="56" width="392" height="26" rx="4" fill="var(--azul)"/>
-        <rect x="24" y="56" width="392" height="26" rx="4" fill="none" stroke="var(--azul)" stroke-width="1.6" opacity=".5"/>
-        <!-- temporalidad -->
-        <path d="M300 108 v112" stroke="var(--azul)" stroke-width="1.8" stroke-dasharray="6 8" opacity=".45"/>
-        <text x="300" y="240" text-anchor="middle" font-family="Inter" font-weight="700" font-size="9" letter-spacing="1.5" fill="var(--azul)" opacity=".5">VENCIMIENTO</text>
-        <!-- merma cruzando -->
-        <g class="converger" style="--fx:-190px">
-          <rect x="212" y="132" width="82" height="58" rx="5" fill="var(--azul)" opacity=".2"/>
-          <rect x="212" y="132" width="82" height="58" rx="5" fill="none" stroke="var(--azul)" stroke-width="2.2"/>
-          <text x="253" y="166" text-anchor="middle" font-family="Inter" font-weight="700" font-size="9.5" letter-spacing="1.2" fill="var(--azul)">MERMA</text>
+    <div class="viz r d7"><div class="stage">
+      <svg viewBox="0 0 440 250" role="img" aria-label="El saldo de importación temporal baja con sustento jurídico">
+        <text x="24" y="40" font-family="Inter" font-weight="700" font-size="9.5" letter-spacing="1.6" fill="var(--azul)" opacity=".62">SALDO IMMEX</text>
+        <rect x="24" y="54" width="392" height="26" rx="4" fill="var(--azul)" opacity=".12"/>
+        <rect class="vaciar" x="24" y="54" width="392" height="26" rx="4" fill="var(--azul)"/>
+        <rect x="24" y="54" width="392" height="26" rx="4" fill="none" stroke="var(--azul)" stroke-width="1.6" opacity=".5"/>
+        <!-- dictamen previo -->
+        <g>
+          <rect x="24" y="112" width="126" height="106" rx="6" fill="none" stroke="var(--azul)" stroke-width="2.2"/>
+          <path d="M42 142 h90 M42 160 h90 M42 178 h54" stroke="var(--azul)" stroke-width="2" opacity=".34" stroke-linecap="round"/>
+          <text x="87" y="238" text-anchor="middle" font-family="Inter" font-weight="700" font-size="9" letter-spacing="1.4" fill="var(--azul)" opacity=".6">ESTUDIO PREVIO</text>
+          <g class="sellar">
+            <circle cx="132" cy="200" r="15" fill="var(--azul)"/>
+            <path d="M125 200 l5 5 l9 -10" stroke="#fff" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          </g>
         </g>
-        <!-- descargado -->
-        <g class="sellar">
-          <circle cx="366" cy="161" r="21" fill="var(--azul)"/>
-          <path d="M356 161 l6 7 l13 -14" stroke="#fff" stroke-width="2.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        <path class="trazar" style="--len:52" d="M162 165 H214" fill="none" stroke="var(--azul)" stroke-width="1.8" opacity=".35"/>
+        <path d="M214 165 l-8 -6 M214 165 l-8 6" stroke="var(--azul)" stroke-width="1.8" fill="none" opacity=".35" stroke-linecap="round"/>
+        <!-- merma cruzando el vencimiento -->
+        <path d="M330 106 v112" stroke="var(--azul)" stroke-width="1.8" stroke-dasharray="6 8" opacity=".45"/>
+        <text x="330" y="238" text-anchor="middle" font-family="Inter" font-weight="700" font-size="9" letter-spacing="1.4" fill="var(--azul)" opacity=".5">TEMPORALIDAD</text>
+        <g class="converger" style="--fx:-62px">
+          <rect x="248" y="136" width="80" height="58" rx="5" fill="var(--azul)" opacity=".22"/>
+          <rect x="248" y="136" width="80" height="58" rx="5" fill="none" stroke="var(--azul)" stroke-width="2.2"/>
+          <text x="288" y="170" text-anchor="middle" font-family="Inter" font-weight="700" font-size="9.5" letter-spacing="1.2" fill="var(--azul)">MERMA</text>
         </g>
-        <text x="366" y="204" text-anchor="middle" font-family="Inter" font-weight="700" font-size="9" letter-spacing="1.4" fill="var(--azul)" opacity=".62">DESCARGADO</text>
+        <g class="sellar st1">
+          <circle cx="386" cy="165" r="20" fill="var(--azul)"/>
+          <path d="M376 165 l6 6 l12 -13" stroke="#fff" stroke-width="2.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        </g>
       </svg>
-      <span class="cap">el saldo baja antes de que corra el reloj</span>
+      <span class="cap">primero se dictamina · después se ejecuta</span>
     </div></div>
   </div>
 </section>
@@ -621,34 +697,41 @@ b,strong{font-weight:600}
   </div>
   <div class="split">
     <div class="col">
-      <div class="blk hero r d3"><span class="bt">Dejas de tener el patio lleno. Y este servicio arranca en días.</span></div>
-      <div class="blk r d4"><span class="bl">Cómo lo hacemos</span><span class="bt">Recolección con la frecuencia que necesites —diaria si hace falta—, tratamiento y disposición conforme a norma, con manifiestos de cada entrega. Contenedores limpios de vuelta.</span></div>
-      <div class="blk r d5"><span class="bl">Aquí no hay trámite fiscal</span><span class="bt">Es un servicio operativo y ambiental: <b>sin aviso ni plazos del SAT</b>. Nuestra factura sí es deducible como gasto. Y la Ley de Economía Circular obliga a justificar el destino de cada residuo: eso lo resolvemos nosotros.</span></div>
+      <div class="blk hero r d3"><span class="bt">Recolección y disposición <b>con todos los permisos en regla</b>.</span></div>
+      <div class="blk r d4"><span class="bl">La frecuencia que necesites</span><span class="bt">Diaria, semanal, periódica o mensual. Tenemos el equipo para sostenerla.</span></div>
+      <div class="blk r d5"><span class="bl">Aplicación de seguimiento</span><span class="bt">Consultas evidencia, reportes y manifiestos de cada recolección.</span></div>
+      <div class="blk r d6"><span class="bl">Manejo correcto</span><span class="bt">Tratamiento y disposición final conforme a norma, con manifiesto de cada entrega.</span></div>
     </div>
-    <div class="viz r d6"><div class="stage">
-      <svg viewBox="0 0 440 240" role="img" aria-label="El contenedor se llena y la unidad lo recoge, cada semana">
-        <!-- contenedor -->
-        <rect x="46" y="66" width="118" height="118" rx="5" fill="none" stroke="var(--azul)" stroke-width="2.4"/>
-        <rect class="llenar" x="52" y="72" width="106" height="106" rx="3" fill="var(--azul)" opacity=".3"/>
-        <text x="105" y="204" text-anchor="middle" font-family="Inter" font-weight="700" font-size="9" letter-spacing="1.4" fill="var(--azul)" opacity=".6">TU PLANTA</text>
-        <!-- piso -->
-        <path d="M20 186 H420" stroke="var(--azul)" stroke-width="1.6" opacity=".22"/>
-        <!-- unidad -->
+    <div class="viz r d7"><div class="stage">
+      <svg viewBox="0 0 440 240" role="img" aria-label="Recolección recurrente con seguimiento en aplicación">
+        <rect x="34" y="70" width="106" height="112" rx="5" fill="none" stroke="var(--azul)" stroke-width="2.4"/>
+        <rect class="llenar" x="40" y="76" width="94" height="100" rx="3" fill="var(--azul)" opacity=".3"/>
+        <text x="87" y="204" text-anchor="middle" font-family="Inter" font-weight="700" font-size="9" letter-spacing="1.4" fill="var(--azul)" opacity=".6">TU PLANTA</text>
+        <path d="M20 182 H310" stroke="var(--azul)" stroke-width="1.6" opacity=".22"/>
         <g class="rondar">
-          <rect x="230" y="106" width="106" height="58" rx="4" fill="var(--azul)" opacity=".16"/>
-          <rect x="230" y="106" width="106" height="58" rx="4" fill="none" stroke="var(--azul)" stroke-width="2.2"/>
-          <path d="M336 128 h30 l16 20 v16 h-46 z" fill="none" stroke="var(--azul)" stroke-width="2.2" stroke-linejoin="round"/>
-          <circle cx="258" cy="176" r="10" fill="none" stroke="var(--azul)" stroke-width="2.4"/>
-          <circle cx="356" cy="176" r="10" fill="none" stroke="var(--azul)" stroke-width="2.4"/>
+          <rect x="182" y="106" width="88" height="52" rx="4" fill="var(--azul)" opacity=".16"/>
+          <rect x="182" y="106" width="88" height="52" rx="4" fill="none" stroke="var(--azul)" stroke-width="2.2"/>
+          <path d="M270 124 h24 l14 18 v16 h-38 z" fill="none" stroke="var(--azul)" stroke-width="2.2" stroke-linejoin="round"/>
+          <circle cx="206" cy="172" r="10" fill="none" stroke="var(--azul)" stroke-width="2.4"/>
+          <circle cx="286" cy="172" r="10" fill="none" stroke="var(--azul)" stroke-width="2.4"/>
         </g>
-        <!-- ciclo -->
-        <g opacity=".55">
-          <path d="M196 32 h60 a10 10 0 0 1 10 10 v8" fill="none" stroke="var(--azul)" stroke-width="1.6" stroke-dasharray="4 5"/>
-          <path d="M266 50 l-5 -7 M266 50 l5 -7" stroke="var(--azul)" stroke-width="1.6" fill="none" stroke-linecap="round"/>
-          <text x="196" y="35" text-anchor="end" font-family="Inter" font-weight="700" font-size="9" letter-spacing="1.4" fill="var(--azul)">CADA SEMANA</text>
+        <g opacity=".5">
+          <circle class="alcance" cx="87" cy="126" r="70" fill="none" stroke="var(--azul)" stroke-width="2"/>
+          <circle class="alcance st2" cx="87" cy="126" r="70" fill="none" stroke="var(--azul)" stroke-width="2"/>
         </g>
+        <!-- app de seguimiento -->
+        <rect x="344" y="42" width="76" height="146" rx="10" fill="none" stroke="var(--azul)" stroke-width="2.2"/>
+        <rect x="370" y="50" width="24" height="4" rx="2" fill="var(--azul)" opacity=".4"/>
+        <g class="gota"><rect x="354" y="66" width="56" height="26" rx="3" fill="var(--azul)" opacity=".24"/></g>
+        <g class="gota st1"><rect x="354" y="98" width="56" height="26" rx="3" fill="var(--azul)" opacity=".24"/></g>
+        <g class="gota st2"><rect x="354" y="130" width="56" height="26" rx="3" fill="var(--azul)" opacity=".24"/></g>
+        <g class="sellar st2">
+          <circle cx="404" cy="170" r="13" fill="var(--azul)"/>
+          <path d="M398 170 l4 5 l8 -9" stroke="#fff" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        </g>
+        <text x="382" y="208" text-anchor="middle" font-family="Inter" font-weight="700" font-size="9" letter-spacing="1.4" fill="var(--azul)" opacity=".6">SEGUIMIENTO</text>
       </svg>
-      <span class="cap">recolección recurrente · con manifiesto</span>
+      <span class="cap">recolectamos · disponemos · lo compruebas</span>
     </div></div>
   </div>
 </section>
@@ -657,41 +740,41 @@ b,strong{font-weight:600}
 <section class="s azul">
   <div class="head">
     <span class="eyebrow r d1">Cómo trabajamos</span>
-    <h2 class="disp xs r d2" style="margin-top:.14em;max-width:20ch">Tres etapas, y en las tres queda papel.</h2>
+    <h2 class="disp xs r d2" style="margin-top:.14em;max-width:18ch">Tres etapas, y nosotros llevamos las tres.</h2>
   </div>
   <div class="flow">
     <div class="step r d3">
       <span class="sn">01</span>
-      <span class="st">Diagnóstico y cotización</span>
-      <span class="sd">Vemos qué material es, cuánto hay y dónde está. Definimos el método de destrucción y, si aplica, la ruta fiscal.</span>
+      <span class="st">Análisis y cotización</span>
+      <span class="sd">Revisamos tu caso y definimos la ruta con sustento legal.</span>
     </div>
     <div class="step r d5">
       <span class="sn">02</span>
-      <span class="st">Recolección y manejo seguro</span>
-      <span class="sd">Vamos por él a tu planta, con acta, verificación por tarima, báscula y carta porte. Tú no mueves nada.</span>
+      <span class="st">Recolección y manejo</span>
+      <span class="sd">Vamos a tu planta con acta, báscula y carta porte.</span>
     </div>
     <div class="step r d7">
       <span class="sn">03</span>
-      <span class="st">Tratamiento y certificación</span>
-      <span class="sd">Destrucción o disposición final, certificado y manifiestos. Y si hubo ruta fiscal, acompañamiento hasta tu declaración anual.</span>
+      <span class="st">Disposición y certificación</span>
+      <span class="sd">Destino final, expediente completo y acompañamiento después.</span>
     </div>
   </div>
 </section>
 
-<!-- 09 · QUÉ RECIBES -->
+<!-- 09 · NUESTROS EXPEDIENTES -->
 <section class="s">
   <div class="head">
-    <span class="eyebrow r d1">Qué recibes</span>
-    <h2 class="disp xs r d2" style="margin-top:.14em;color:var(--azul);max-width:22ch">El entregable no es el camión. Es el expediente.</h2>
+    <span class="eyebrow r d1">Qué te entregamos</span>
+    <h2 class="disp xs r d2" style="margin-top:.14em;color:var(--azul);max-width:18ch">Nuestros expedientes.</h2>
   </div>
   <div class="split narrow">
     <div class="col">
-      <div class="spec r d3"><span class="tick"></span><span><b>Actas y certificado</b> de recolección y destrucción, con firma electrónica avanzada</span></div>
-      <div class="spec r d3"><span class="tick"></span><span><b>Manifiestos</b> de disposición final: trazabilidad hasta dónde acabó</span></div>
-      <div class="spec r d4"><span class="tick"></span><span><b>Ticket de báscula</b> y carta porte: peso real verificado, no declarado</span></div>
-      <div class="spec r d4"><span class="tick"></span><span><b>Fotografía y video</b> con metadatos de fecha y ubicación</span></div>
-      <div class="spec r d5"><span class="tick"></span><span><b>Acceso en línea</b> para consultar la evidencia de cada servicio</span></div>
-      <p class="mini r d7" style="border-top:2.5px solid var(--azul);padding-top:.9em;max-width:48ch">Un expediente típico va de <b>400 a 1,000 hojas</b>. No lo armas tú: lo armamos nosotros y te lo entregamos cerrado.</p>
+      <div class="spec r d3"><span class="tick"></span><span>Actas y certificado de destrucción</span></div>
+      <div class="spec r d4"><span class="tick"></span><span>Manifiestos de disposición final</span></div>
+      <div class="spec r d5"><span class="tick"></span><span>Ticket de báscula y carta porte</span></div>
+      <div class="spec r d6"><span class="tick"></span><span>Fotografía y video con metadatos</span></div>
+      <div class="spec r d7"><span class="tick"></span><span>Acceso en línea a toda la evidencia</span></div>
+      <p class="mini r d8" style="border-top:2.5px solid var(--azul);padding-top:.9em;max-width:40ch">Hasta <b>400 hojas</b> con firma electrónica avanzada. Lo armamos nosotros.</p>
     </div>
     <div class="viz r d6"><div class="stage">
       <svg viewBox="0 0 440 250" role="img" aria-label="Las hojas se apilan en un expediente sellado">
@@ -709,102 +792,98 @@ b,strong{font-weight:600}
           <path d="M284 186 l8 8 l16 -17" stroke="#fff" stroke-width="3.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
         </g>
       </svg>
-      <span class="cap">400 a 1,000 hojas · cerrado y firmado</span>
+      <span class="cap">cadena de custodia completa</span>
     </div></div>
   </div>
 </section>
 
-<!-- 10 · COBERTURA Y EJECUCIÓN -->
+<!-- 10 · COBERTURA -->
 <section class="s azul">
   <div class="head">
-    <span class="eyebrow r d1">Cobertura y ejecución</span>
-    <h2 class="disp xs r d2" style="margin-top:.14em;max-width:23ch">Cobertura nacional. Y siempre sabes quién llega a tu planta.</h2>
+    <span class="eyebrow r d1">Cobertura</span>
+    <h2 class="disp xs r d2" style="margin-top:.14em;max-width:18ch">Operamos en todo el país.</h2>
   </div>
   <div class="split">
     <div class="col">
-      <div class="blk hero r d3"><span class="bl">Toda la República</span><span class="bt">Operamos en todo el país. Nuestra base y nuestras autorizaciones ambientales están en Jalisco.</span></div>
-      <div class="blk r d4"><span class="bl">Materiales</span><span class="bt">Papel y cartón, plásticos y film, madera y tarimas, scrap electrónico, vidrio y metales, orgánicos, líquidos envasados, textiles y promocionales. Si es <b>residuo peligroso</b>, también: cambia el tratamiento.</span></div>
+      <div class="blk hero r d3"><span class="bl">Equipo propio</span><span class="bt">Te decimos quién va a tu planta antes de firmar.</span></div>
+      <div class="blk hero r d4"><span class="bl">Todo tipo de material</span><span class="bt">Incluido residuo peligroso.</span></div>
+      <div class="blk hero r d5"><span class="bl">Responsabilidad nuestra</span><span class="bt">Hasta el destino final. No se diluye en la cadena.</span></div>
     </div>
-    <div class="col">
-      <div class="blk r d5"><span class="bl">Quién ejecuta</span><span class="bt">Donde llegamos directo, va <b>personal de RECYMEX</b>. Donde la distancia lo exige, aliados certificados que nosotros controlamos. Antes de firmar te decimos exactamente quién va — y si ya tuviste una mala experiencia con algún prestador, lo descartamos por escrito.</span></div>
-      <div class="blk r d7"><span class="bl">Responsabilidad</span><span class="bt">La responsabilidad solidaria del residuo la mantenemos nosotros hasta el destino final. No se diluye en la cadena.</span></div>
-    </div>
+    <div class="viz r d6"><div class="stage">
+      <svg viewBox="0 0 440 250" role="img" aria-label="Cobertura en toda la República">
+        <g opacity=".85">
+          <circle class="alcance" cx="220" cy="125" r="108" fill="none" stroke="var(--blanco)" stroke-width="2"/>
+          <circle class="alcance st1" cx="220" cy="125" r="108" fill="none" stroke="var(--blanco)" stroke-width="2"/>
+          <circle class="alcance st3" cx="220" cy="125" r="108" fill="none" stroke="var(--blanco)" stroke-width="2"/>
+        </g>
+        <g fill="var(--blanco)">
+          <circle class="nodo" cx="96" cy="62" r="5"/>
+          <circle class="nodo st1" cx="168" cy="38" r="5"/>
+          <circle class="nodo st3" cx="286" cy="54" r="5"/>
+          <circle class="nodo st2" cx="352" cy="96" r="5"/>
+          <circle class="nodo st4" cx="326" cy="182" r="5"/>
+          <circle class="nodo st1" cx="238" cy="212" r="5"/>
+          <circle class="nodo st5" cx="128" cy="190" r="5"/>
+          <circle class="nodo st2" cx="70" cy="132" r="5"/>
+        </g>
+        <circle cx="220" cy="125" r="13" fill="var(--blanco)"/>
+        <text x="220" y="160" text-anchor="middle" font-family="Inter" font-weight="800" font-size="9" letter-spacing="1.6" fill="var(--blanco)" opacity=".85">JALISCO</text>
+      </svg>
+      <span class="cap" style="opacity:.7">base y permisos ambientales</span>
+    </div></div>
   </div>
 </section>
 
-<!-- 11 · PARA COTIZARTE -->
+<!-- 11 · COTIZACIÓN -->
 <section class="s">
   <div class="head">
-    <span class="eyebrow r d1">Para cotizarte</span>
-    <h2 class="disp xs r d2" style="margin-top:.14em;color:var(--azul);max-width:24ch">No hay tarifa de lista. Y es una buena noticia.</h2>
-    <p class="mini r d3" style="margin-top:.85em;max-width:64ch">Un precio de catálogo sería un precio inflado para cubrirnos de lo que no sabemos. Con estas cuatro respuestas te ponemos número real:</p>
+    <span class="eyebrow r d1">Cotización</span>
+    <h2 class="disp xs r d2" style="margin-top:.14em;color:var(--azul);max-width:16ch">Cada proyecto es distinto.</h2>
+    <p class="mini r d3" style="margin-top:.8em;max-width:52ch">Analizamos tu caso para cotizarlo. Con esta información arrancamos:</p>
   </div>
-  <div class="cats">
-    <div class="cat r d4"><span class="ck">Qué es</span><span class="cv">Qué material, y <b>cómo viene</b>: tarimas, granel, cajas, emplayado. Ficha técnica <b>obligatoria</b> solo si es residuo peligroso.</span></div>
-    <div class="cat r d5"><span class="ck">Cuánto es</span><span class="cv">Peso, piezas o volumen. Si no tienes la cifra exacta, un rango sirve para arrancar.</span></div>
-    <div class="cat r d6"><span class="ck">Dónde está</span><span class="cv">Ubicación con <b>link de Google Maps</b>, y si entran vehículos de carga pesada. ¿De qué tipo? ¿Hay andén y montacargas?</span></div>
-    <div class="cat r d7"><span class="ck">Qué necesitas</span><span class="cv">Si buscas <b>deducirlo</b> o solo destruirlo. De ahí definimos nosotros la ruta y el trámite que aplique.</span></div>
+  <div class="form">
+    <div class="fld r d4"><span class="fk">Material</span><span class="fv">¿Qué es y cómo viene? Tarimas, granel, cajas, emplayado.</span></div>
+    <div class="fld r d5"><span class="fk">Cantidad</span><span class="fv">Peso, piezas o volumen. Un rango sirve para arrancar.</span></div>
+    <div class="fld r d6"><span class="fk">Ubicación</span><span class="fv">Dirección y link de Google Maps.</span></div>
+    <div class="fld r d6"><span class="fk">Accesos</span><span class="fv">¿Entran unidades de carga pesada? ¿Hay andén y montacargas?</span></div>
+    <div class="fld req r d7"><span class="fk">Fotografías <span class="req-t">OBLIGATORIO</span></span><span class="fv">Cómo está hoy el material. De celular está perfecto.</span></div>
+    <div class="fld req r d7"><span class="fk">Ficha técnica <span class="req-t">SI ES PELIGROSO</span></span><span class="fv">Solo si el material es residuo peligroso.</span></div>
   </div>
-  <p class="mini r d8" style="border-top:2.5px solid var(--azul);padding-top:.9em;max-width:72ch">
-    Y lo único indispensable: <b>fotografías de cómo está hoy el material</b>. No necesitan ser bonitas, necesitan ser reales. Sin fotos, cualquier número que te demos es una adivinanza.</p>
+  <p class="mini r d8" style="border-top:2.5px solid var(--azul);padding-top:.9em;max-width:60ch">
+    Con la información completa, nuestra cotización toma de <b>5 a 15 días</b>.</p>
 </section>
 
-<!-- 12 · TIEMPOS REALES -->
+<!-- 12 · SIGUIENTES PASOS -->
 <section class="s tinta">
   <div class="head">
-    <span class="eyebrow r d1">Tiempos, sin letras chiquitas</span>
-    <h2 class="disp xs r d2" style="margin-top:.14em;color:var(--tenue);max-width:22ch">No todos los servicios tardan lo mismo.</h2>
-  </div>
-  <div class="srcs">
-    <div class="src r d3">
-      <span class="sk">Gestión de residuos</span>
-      <span class="sm2">Días</span>
-      <span class="sv">Cotización, contrato y arrancamos la ruta de recolección. Sin trámite ante el SAT.</span>
-    </div>
-    <div class="src r d5">
-      <span class="sk">Destrucción sin deducir</span>
-      <span class="sm2">Semanas</span>
-      <span class="sv">Destrucción certificada para proteger marca o calidad. No lleva aviso fiscal.</span>
-    </div>
-    <div class="src r d7">
-      <span class="sk">Destrucción para deducir</span>
-      <span class="sm2">1 a 2 meses</span>
-      <span class="sv">Aquí sí hay calendario de ley: <b>30 días hábiles</b> de aviso previo antes de destruir. Si es producto de subsistencia humana, <b>6 meses</b>.</span>
-    </div>
-  </div>
-  <p class="mini r d8" style="border-top:1px solid rgba(255,255,255,.16);padding-top:.9em;max-width:72ch;opacity:.85">
-    Cotizar nos toma de <b>5 a 15 días</b> desde que tenemos tus datos y fotos. Y sobre el aviso: no te pone en el radar de la autoridad, te protege. Lo que expone es destruir sin avisar.</p>
-</section>
-
-<!-- 13 · SIGUIENTE PASO -->
-<section class="s tinta">
-  <div class="head">
-    <span class="eyebrow r d1">Siguiente paso</span>
-    <h2 class="disp xs r d2" style="margin-top:.14em;color:var(--tenue);max-width:20ch">Salimos de esta llamada con fecha de los dos lados.</h2>
+    <span class="eyebrow r d1">Siguientes pasos</span>
+    <h2 class="disp xs r d2" style="margin-top:.14em;color:var(--tenue);max-width:20ch">Nos mandas la información y cotizamos.</h2>
   </div>
   <div class="pact">
     <div class="pcol mine r d3">
-      <span class="ph">Tú nos mandas</span>
-      <div class="spec"><span class="tick"></span><span>Fotos del material como está hoy</span></div>
-      <div class="spec"><span class="tick"></span><span>Peso, piezas o volumen aproximados</span></div>
-      <div class="spec"><span class="tick"></span><span>Ubicación con link de Google Maps</span></div>
+      <span class="ph">Tú</span>
+      <div class="spec"><span class="tick"></span><span>Fotos del material</span></div>
+      <div class="spec"><span class="tick"></span><span>Cantidad aproximada</span></div>
+      <div class="spec"><span class="tick"></span><span>Ubicación y accesos</span></div>
       <div class="spec"><span class="tick"></span><span>Nombre, empresa y correo</span></div>
     </div>
     <div class="pcol r d5">
-      <span class="ph">Nosotros te entregamos</span>
-      <div class="spec"><span class="tick"></span><span><b>Acuse en 24 horas</b> de que la información está completa, o qué falta</span></div>
-      <div class="spec"><span class="tick"></span><span><b>Cotización formal en 5 a 15 días</b></span></div>
-      <div class="spec"><span class="tick"></span><span>Un ejemplo real de expediente, para que veas qué recibes</span></div>
-      <div class="spec"><span class="tick"></span><span>Convenio de confidencialidad, si tu empresa lo necesita antes</span></div>
+      <span class="ph">Nosotros</span>
+      <div class="spec"><span class="tick"></span><span>Confirmamos si la información está completa</span></div>
+      <div class="spec"><span class="tick"></span><span>Cotización formal por correo</span></div>
+      <div class="spec"><span class="tick"></span><span>Un ejemplo real de expediente</span></div>
+      <div class="spec"><span class="tick"></span><span>Convenio de confidencialidad, si lo necesitas</span></div>
     </div>
   </div>
   <div class="row r d8" style="border-top:1px solid rgba(255,255,255,.16);padding-top:clamp(11px,1.8vh,22px);margin-top:clamp(8px,1.4vh,18px)">
     <div class="logobox"><img class="logo" src="data:image/png;base64,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" alt="RECYMEX®"></div>
-    <div class="mini" style="text-align:right;opacity:.8">recymex.mx<br><span style="opacity:.65">WhatsApp · 33 1773 6851</span></div>
+    <div class="mini" style="text-align:right;opacity:.85">recymex.mx<br><span style="opacity:.7">WhatsApp · 33 1773 6851</span></div>
   </div>
 </section>
 
 </div>
+
+
 
 
 
