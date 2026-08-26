@@ -129,6 +129,34 @@ python3 ~/.claude/skills/presentacion-web/scripts/embed_fonts.py --html index.ht
 
 Paleta: verde `#2DA761`, oscuro `#171A1F`, claro `#F5F7FA`. Barlow (títulos) + Inter (cuerpo).
 
+## Responsividad
+
+Verificada en matriz. Todas estas medidas pasan sin desborde en las 12 láminas:
+
+| Viewport | Caso |
+|---|---|
+| 2560x1080 / 1920x1080 | monitor grande |
+| 1920x720 / 1366x660 / 1280x720 | laptop y ventana de pantalla compartida |
+| 1440x810 | **referencia de diseño** |
+| 1024x768 / 1024x600 / 768x1024 | tableta |
+| 844x390 / 812x375 | **teléfono en horizontal** |
+| 390x844 / 375x667 / 360x640 | teléfono en vertical |
+
+Tres decisiones que la sostienen:
+
+1. **El tamaño respeta la altura, no solo el ancho.** Los títulos y el espaciado usan
+   `min(Xvw, Yvh)`: a 1440x810 el resultado es idéntico al diseño original, y en pantallas
+   bajas encoge en lugar de desbordar.
+2. **El apilado a una columna es solo en retrato** (`max-width:900px and orientation:portrait`).
+   Un teléfono en horizontal es angosto pero bajo: apilarlo era justo lo contrario de lo que
+   necesita, así que conserva las dos columnas y solo se compacta.
+3. **Dos escalones de compactación por altura**: `max-height:560px` y `max-height:420px`
+   aprietan padding, gaps y altura de ilustración. En láminas bajas se oculta la pista de
+   navegación y el pie de ilustración.
+
+Si agregas contenido, vuelve a correr la matriz antes de publicar — las láminas 03 (cuatro
+avales + cuatro cifras) y 06 (textos de tarjeta más largos) son las que desbordan primero.
+
 ## Escala de texto chico
 
 Todo el texto pequeño del deck usa **dos escalones únicos**. Si agregas contenido, reúsalos
