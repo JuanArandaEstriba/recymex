@@ -53,11 +53,11 @@ body{font-family:'Inter',system-ui,sans-serif;-webkit-font-smoothing:antialiased
       font-size:clamp(44px,9.4vw,168px)}
 .disp.md{font-size:clamp(30px,5.2vw,92px);line-height:.94}
 .disp.xs{font-size:clamp(25px,4vw,66px);line-height:.97}
-.eyebrow{font-size:clamp(9.5px,.8vw,12.5px);font-weight:600;letter-spacing:.24em;text-transform:uppercase;opacity:.45}
+.eyebrow{font-size:clamp(11px,.9vw,13.5px);font-weight:600;letter-spacing:.24em;text-transform:uppercase;opacity:.45}
 .s.azul .eyebrow,.s.tinta .eyebrow{opacity:.72}
 .s.azul .mini{opacity:.9}
 .lede{font-size:clamp(14.5px,1.5vw,24px);line-height:1.38;max-width:30ch}
-.mini{font-size:clamp(10.5px,.82vw,13.5px);line-height:1.5;opacity:.62}
+.mini{font-size:clamp(12px,1vw,15px);line-height:1.5;opacity:.62}
 b,strong{font-weight:600}
 
 /* LOGO — envuelto para que flex no lo estire */
@@ -103,12 +103,12 @@ b,strong{font-weight:600}
 /* bloques etiqueta+texto */
 .blk{border-left:2.5px solid var(--azul);padding-left:clamp(11px,1.2vw,18px)}
 .s.azul .blk,.s.tinta .blk{border-left-color:var(--tenue)}
-.blk .bl{font-size:clamp(9px,.74vw,11.5px);font-weight:700;letter-spacing:.2em;text-transform:uppercase;
+.blk .bl{font-size:clamp(11px,.9vw,13.5px);font-weight:700;letter-spacing:.2em;text-transform:uppercase;
          color:var(--azul);display:block;margin-bottom:.42em}
 .s.azul .blk .bl,.s.tinta .blk .bl{color:var(--tenue)}
 .blk .bt{font-size:clamp(12px,1.06vw,17.5px);line-height:1.42;display:block}
 .blk.hero{border-left-width:4px}          /* bloque protagonista (más grande) */
-.blk.hero .bl{font-size:clamp(9.5px,.8vw,12.5px);color:var(--azul);opacity:1}
+.blk.hero .bl{font-size:clamp(11px,.9vw,13.5px);color:var(--azul);opacity:1}
 .blk.hero .bt{font-size:clamp(15px,1.5vw,25px);line-height:1.28;font-weight:600;letter-spacing:-.012em}
 .s.tinta .blk.hero .bl{color:var(--tenue)}
 
@@ -118,7 +118,7 @@ b,strong{font-weight:600}
 .step .sn{font-family:'Barlow';font-weight:900;font-size:clamp(32px,4.4vw,74px);letter-spacing:-.05em;
           line-height:.9;color:var(--tenue);opacity:.5}
 .step .st{font-family:'Barlow';font-weight:700;font-size:clamp(14.5px,1.55vw,25px);letter-spacing:-.02em;line-height:1.12}
-.step .sd{font-size:clamp(10.5px,.9vw,15px);line-height:1.48;opacity:.85}
+.step .sd{font-size:clamp(12px,1.02vw,16px);line-height:1.48;opacity:.85}
 .step::after{content:"→";position:absolute;right:calc(-1 * clamp(14px,2.2vw,38px) / 2 - .28em);top:clamp(12px,1.8vw,28px);
              font-size:clamp(15px,1.6vw,26px);opacity:.38}
 .step:last-child::after{display:none}
@@ -134,13 +134,13 @@ b,strong{font-weight:600}
          color:var(--azul);line-height:1.08;display:block;margin-bottom:.5em}
 .src .sm2{font-family:'Barlow';font-weight:900;font-size:clamp(17px,1.9vw,30px);letter-spacing:-.03em;
           display:block;margin-bottom:.35em}
-.src .sv{font-size:clamp(10.5px,.9vw,15px);line-height:1.48;display:block}
-.src .sw{font-size:clamp(9.5px,.78vw,12.5px);line-height:1.45;opacity:.56;display:block;margin-top:.55em}
+.src .sv{font-size:clamp(12px,1.02vw,16px);line-height:1.48;display:block}
+.src .sw{font-size:clamp(11.5px,.95vw,14.5px);line-height:1.45;opacity:.56;display:block;margin-top:.55em}
 
 /* lista de categorías (etiqueta | valor) */
 .cats{display:flex;flex-direction:column;gap:clamp(9px,1.6vh,21px);flex:1;justify-content:center}
 .cat{display:grid;grid-template-columns:clamp(96px,10vw,160px) 1fr;gap:clamp(10px,1.4vw,24px);align-items:baseline}
-.cat .ck{font-size:clamp(9px,.74vw,11.5px);font-weight:700;letter-spacing:.16em;text-transform:uppercase;
+.cat .ck{font-size:clamp(11px,.9vw,13.5px);font-weight:700;letter-spacing:.16em;text-transform:uppercase;
          color:var(--azul)}
 .cat .cv{font-size:clamp(11px,1vw,16.5px);line-height:1.45}
 /* variante usada en el índice: .cats con .blk dentro (.bl + .bt) */
@@ -152,7 +152,7 @@ b,strong{font-weight:600}
           line-height:.85;color:var(--azul);opacity:.3}
 .s.azul .find .fn,.s.tinta .find .fn{color:var(--tenue);opacity:.48}
 .find .ft{font-size:clamp(13.5px,1.3vw,22px);line-height:1.3;font-weight:600;letter-spacing:-.01em;display:block}
-.find .fd{font-size:clamp(10.5px,.9vw,14.5px);line-height:1.52;opacity:.72;display:block;margin-top:.5em;max-width:58ch}
+.find .fd{font-size:clamp(12px,1.02vw,16px);line-height:1.52;opacity:.72;display:block;margin-top:.5em;max-width:58ch}
 .find .fd em{font-style:normal;font-weight:600;opacity:1}
 
 /* principios 2x2 */
@@ -161,7 +161,7 @@ b,strong{font-weight:600}
 .pr .pk{font-family:'Barlow';font-weight:700;font-size:clamp(14px,1.5vw,24px);letter-spacing:-.022em;
         color:var(--azul);display:block;margin-bottom:.5em}
 .s.azul .pr .pk{color:var(--blanco)}
-.pr .pv{font-size:clamp(10.5px,.92vw,15px);line-height:1.55;display:block;opacity:.9}
+.pr .pv{font-size:clamp(12px,1.02vw,16px);line-height:1.55;display:block;opacity:.9}
 
 /* grid de tarjetas (ideal para "N productos/pilares") */
 .grid8{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(10px,1.5vw,22px);flex:1;align-content:center}
@@ -176,14 +176,14 @@ b,strong{font-weight:600}
 .out{border-left:2px solid var(--azul);padding-left:clamp(9px,1vw,14px)}
 .s.tinta .out,.s.azul .out{border-left-color:var(--tenue)}
 .out .on{font-size:clamp(11px,.98vw,15.5px);font-weight:600;line-height:1.2;display:block}
-.out .or{font-size:clamp(9.5px,.76vw,12.5px);line-height:1.35;opacity:.62;margin-top:.3em;display:block}
+.out .or{font-size:clamp(11.5px,.95vw,14.5px);line-height:1.35;opacity:.62;margin-top:.3em;display:block}
 .out .or em{font-style:normal;font-weight:600;opacity:1}
 
 /* lienzo para la ilustración SVG animada */
 .viz{position:relative;align-self:center;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:0;width:100%}
 .viz svg{width:100%;height:auto;max-height:min(56vh,500px);overflow:hidden}
 .stage{width:100%;max-width:560px}
-.cap{display:block;width:100%;position:static;margin-top:clamp(10px,1.6vh,20px);text-align:center;font-size:clamp(9px,.74vw,11.5px);
+.cap{display:block;width:100%;position:static;margin-top:clamp(10px,1.6vh,20px);text-align:center;font-size:clamp(11px,.9vw,13.5px);
      letter-spacing:.16em;text-transform:uppercase;font-weight:600;opacity:.42}
 
 /* ===== ANIMACIONES SVG reutilizables (aplica la clase al elemento) =====
@@ -303,7 +303,6 @@ b,strong{font-weight:600}
 .tarjetas.una{gap:clamp(9px,1.5vh,19px)}
 .tarjetas.una .tj{padding:clamp(14px,1.6vw,26px) clamp(15px,1.7vw,28px);gap:.42em}
 .tarjetas.una .tj .tjk{font-size:clamp(14px,1.44vw,24px)}
-.tarjetas.una .tj .tjv{font-size:clamp(11px,.95vw,15.5px)}
 
 /* fotografía real de fondo, bajo un velo oscuro */
 .s.confoto{isolation:isolate}
@@ -333,13 +332,13 @@ b,strong{font-weight:600}
     padding:clamp(12px,1.45vw,23px);display:flex;flex-direction:column;gap:.5em;min-width:0}
 .s.tinta .tj{background:rgba(255,255,255,.05);border-color:rgba(255,255,255,.13)}
 .s.azul  .tj{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.3)}
-.tj .tjn{font-family:'Barlow',sans-serif;font-weight:900;font-size:clamp(10px,.86vw,13px);
+.tj .tjn{font-family:'Barlow',sans-serif;font-weight:900;font-size:clamp(11px,.9vw,13.5px);
          letter-spacing:.1em;color:var(--azul);display:block}
 .s.tinta .tj .tjn,.s.azul .tj .tjn{color:var(--tenue)}
 .tj .tjk{font-family:'Barlow',sans-serif;font-weight:800;font-size:clamp(13px,1.28vw,21px);
          letter-spacing:-.02em;line-height:1.12;display:block}
-.tj .tjv{font-size:clamp(10.5px,.9vw,14.5px);line-height:1.5;color:#6B7C91;display:block}
-.s.tinta .tj .tjv,.s.azul .tj .tjv{color:rgba(255,255,255,.76)}
+.tj .tjv{font-size:clamp(12px,1.02vw,16px);line-height:1.5;color:#6B7C91;display:block}
+.s.tinta .tj .tjv,.s.azul .tj .tjv{color:rgba(255,255,255,.85)}
 .tj .tjg{flex:none;width:clamp(30px,2.6vw,42px);height:clamp(30px,2.6vw,42px);margin-bottom:.1em}
 .tj .tjg svg{width:100%;height:100%;display:block;overflow:hidden}
 
@@ -395,13 +394,13 @@ b,strong{font-weight:600}
 .fld{display:flex;flex-direction:column;gap:.5em;padding-bottom:clamp(7px,1vh,12px);
      border-bottom:1.5px solid #E2E8F0}
 .s.tinta .fld{border-bottom-color:rgba(255,255,255,.18)}
-.fld .fk{font-size:clamp(9px,.74vw,11.5px);font-weight:700;letter-spacing:.16em;text-transform:uppercase;
+.fld .fk{font-size:clamp(11px,.9vw,13.5px);font-weight:700;letter-spacing:.16em;text-transform:uppercase;
          color:var(--gris);display:flex;align-items:center;gap:.6em}
 .fld .fv{font-family:'Barlow',sans-serif;font-weight:700;font-size:clamp(13px,1.25vw,20px);
          letter-spacing:-.015em;line-height:1.18}
 .fld.req{border-bottom-color:var(--azul)}
 .fld.req .fk{color:var(--azul)}
-.fld .req-t{font-size:clamp(8px,.66vw,10px);font-weight:800;letter-spacing:.1em;padding:.18em .5em;
+.fld .req-t{font-size:clamp(9.5px,.78vw,11.5px);font-weight:800;letter-spacing:.1em;padding:.18em .5em;
   border-radius:3px;background:var(--azul);color:#fff}
 
 @media (max-width:1200px){
@@ -428,16 +427,16 @@ b,strong{font-weight:600}
   transition:transform .22s cubic-bezier(.16,.9,.3,1),box-shadow .22s,border-color .22s}
 .hcard:hover,.hcard:focus-visible{transform:translateY(-4px);box-shadow:0 10px 30px rgba(23,26,31,.10);outline:none;border-color:var(--azul)}
 .hcard .hk{font-family:'Barlow',sans-serif;font-weight:800;font-size:clamp(15px,1.55vw,25px);letter-spacing:-.02em;line-height:1.08}
-.hcard .hq{font-size:clamp(11px,.95vw,15.5px);line-height:1.4;color:var(--azul);font-weight:600}
-.hcard .hv{font-size:clamp(10.5px,.88vw,14px);line-height:1.5;color:var(--gris)}
-.hcard .hgo{margin-top:auto;font-size:clamp(9px,.74vw,11.5px);font-weight:700;letter-spacing:.18em;
+.hcard .hq{font-size:clamp(12px,1.02vw,16px);line-height:1.4;color:var(--azul);font-weight:600}
+.hcard .hv{font-size:clamp(12px,1.02vw,16px);line-height:1.5;color:var(--gris)}
+.hcard .hgo{margin-top:auto;font-size:clamp(11px,.9vw,13.5px);font-weight:700;letter-spacing:.18em;
   text-transform:uppercase;color:var(--azul);display:flex;align-items:center;gap:.5em}
 .hcard .hgo::after{content:"→";transition:transform .22s}
 .hcard:hover .hgo::after{transform:translateX(4px)}
 
 /* volver al hub (discreto, arriba a la derecha) */
 .back{position:absolute;top:clamp(14px,1.8vw,30px);right:var(--gut);z-index:16;
-  background:none;border:none;cursor:pointer;font:inherit;font-size:clamp(9px,.74vw,11.5px);
+  background:none;border:none;cursor:pointer;font:inherit;font-size:clamp(11px,.9vw,13.5px);
   font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--azul);opacity:.5;
   display:flex;align-items:center;gap:.5em;transition:opacity .2s}
 .back:hover,.back:focus-visible{opacity:1;outline:none}
@@ -465,7 +464,7 @@ b,strong{font-weight:600}
   color:var(--azul);display:block;margin-bottom:.4em}
 .s.tinta .tstep .tw{color:var(--tenue)}
 .tstep .tt{font-size:clamp(11px,1vw,16px);font-weight:600;line-height:1.24;display:block;letter-spacing:-.01em}
-.tstep .td{font-size:clamp(9.5px,.78vw,12.5px);line-height:1.45;opacity:.66;display:block;margin-top:.42em}
+.tstep .td{font-size:clamp(11.5px,.95vw,14.5px);line-height:1.45;opacity:.66;display:block;margin-top:.42em}
 
 /* dos columnas de compromiso (tu / nosotros) */
 .pact{display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,3.2vw,58px);flex:1;align-content:center}
@@ -477,12 +476,12 @@ b,strong{font-weight:600}
 
 /* dato duro grande (prueba) */
 .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,2.2vw,40px);flex:1;align-content:center}
-.stat .sl3{font-size:clamp(9px,.74vw,11.5px);font-weight:700;letter-spacing:.2em;text-transform:uppercase;
+.stat .sl3{font-size:clamp(11px,.9vw,13.5px);font-weight:700;letter-spacing:.2em;text-transform:uppercase;
   display:block;margin-bottom:.35em;opacity:.7}
 .stat .sv2{font-family:'Barlow',sans-serif;font-weight:900;font-size:clamp(30px,4.4vw,74px);letter-spacing:-.038em;
   line-height:.92;display:block;color:var(--azul)}
 .s.tinta .stat .sv2,.s.azul .stat .sv2{color:var(--tenue)}
-.stat .sl2{font-size:clamp(10.5px,.9vw,14.5px);line-height:1.42;display:block;margin-top:.6em;opacity:.82}
+.stat .sl2{font-size:clamp(12px,1.02vw,16px);line-height:1.42;display:block;margin-top:.6em;opacity:.82}
 .stat{border-top:2.5px solid var(--azul);padding-top:clamp(11px,1.5vh,20px)}
 .s.tinta .stat,.s.azul .stat{border-top-color:var(--tenue)}
 
@@ -491,7 +490,7 @@ b,strong{font-weight:600}
 .bg{border:1px solid currentColor;border-radius:6px;padding:clamp(10px,1.2vw,18px) clamp(11px,1.3vw,19px);
     display:flex;flex-direction:column;gap:.4em;justify-content:flex-start;opacity:.95}
 .bg .bgn{font-family:'Barlow',sans-serif;font-weight:800;font-size:clamp(12.5px,1.15vw,19px);letter-spacing:-.015em;line-height:1.1}
-.bg .bgd{font-size:clamp(9.5px,.78vw,12.5px);line-height:1.4;opacity:.82}
+.bg .bgd{font-size:clamp(11.5px,.95vw,14.5px);line-height:1.4;opacity:.82}
 
 @media (max-width:900px){
   .hub,.stats,.pact{grid-template-columns:1fr}
@@ -509,13 +508,13 @@ b,strong{font-weight:600}
 .dot{width:5px;height:5px;border-radius:50%;background:currentColor;opacity:.3;cursor:pointer;border:none;padding:0;
      transition:opacity .2s,transform .2s}
 .dot.on{opacity:1;transform:scale(1.7)}
-#count{font-size:10.5px;letter-spacing:.18em;font-weight:600;font-variant-numeric:tabular-nums}
+#count{font-size:11.5px;letter-spacing:.18em;font-weight:600;font-variant-numeric:tabular-nums}
 #nav{color:var(--tinta)}
 #nav.onDark{color:#fff}
 #nav.onAccent{color:#fff}
 #nav.onAccent .dot{opacity:.42}
 #hint{position:fixed;bottom:calc(clamp(48px,6.4vh,70px) + 2px);left:50%;transform:translateX(-50%);
-      font-size:9.5px;letter-spacing:.17em;text-transform:uppercase;color:var(--tinta);
+      font-size:10.5px;letter-spacing:.17em;text-transform:uppercase;color:var(--tinta);
       opacity:.4;z-index:20;transition:opacity .5s}
 #hint.gone{opacity:0}
 #hint.onDark,#hint.onAccent{color:#fff}
@@ -578,11 +577,11 @@ b,strong{font-weight:600}
         <svg viewBox="0 0 440 250" role="img" aria-label="Tres tipos de material entran y salen valor recuperado y expediente">
           <g opacity=".9">
             <rect x="10" y="30" width="96" height="34" rx="4" fill="none" stroke="var(--azul)" stroke-width="1.8" opacity=".45"/>
-            <text x="58" y="52" text-anchor="middle" font-family="Inter" font-weight="700" font-size="9" letter-spacing="1.1" fill="var(--azul)">INVENTARIO</text>
+            <text x="58" y="52" text-anchor="middle" font-family="Inter" font-weight="700" font-size="11.5" letter-spacing="1.1" fill="var(--azul)">INVENTARIO</text>
             <rect x="10" y="104" width="96" height="34" rx="4" fill="none" stroke="var(--azul)" stroke-width="1.8" opacity=".45"/>
-            <text x="58" y="126" text-anchor="middle" font-family="Inter" font-weight="700" font-size="9" letter-spacing="1.1" fill="var(--azul)">MERMA IMMEX</text>
+            <text x="58" y="126" text-anchor="middle" font-family="Inter" font-weight="700" font-size="11.5" letter-spacing="1.1" fill="var(--azul)">MERMA IMMEX</text>
             <rect x="10" y="178" width="96" height="34" rx="4" fill="none" stroke="var(--azul)" stroke-width="1.8" opacity=".45"/>
-            <text x="58" y="200" text-anchor="middle" font-family="Inter" font-weight="700" font-size="9" letter-spacing="1.1" fill="var(--azul)">RESIDUOS</text>
+            <text x="58" y="200" text-anchor="middle" font-family="Inter" font-weight="700" font-size="11.5" letter-spacing="1.1" fill="var(--azul)">RESIDUOS</text>
           </g>
           <path class="trazar" style="--len:150" d="M112 47 C150 47 150 121 186 121" fill="none" stroke="var(--azul)" stroke-width="1.6" opacity=".3"/>
           <path class="trazar st1" style="--len:90" d="M112 121 H186" fill="none" stroke="var(--azul)" stroke-width="1.6" opacity=".3"/>
@@ -599,13 +598,13 @@ b,strong{font-weight:600}
           <g class="gota">
             <rect x="324" y="66" width="106" height="60" rx="6" fill="var(--azul)" opacity=".16"/>
             <rect x="324" y="66" width="106" height="60" rx="6" fill="none" stroke="var(--azul)" stroke-width="2"/>
-            <text x="377" y="92" text-anchor="middle" font-family="Inter" font-weight="700" font-size="9" letter-spacing="1.1" fill="var(--azul)">VALOR</text>
-            <text x="377" y="108" text-anchor="middle" font-family="Inter" font-weight="700" font-size="9" letter-spacing="1.1" fill="var(--azul)">RECUPERADO</text>
+            <text x="377" y="92" text-anchor="middle" font-family="Inter" font-weight="700" font-size="11.5" letter-spacing="1.1" fill="var(--azul)">VALOR</text>
+            <text x="377" y="108" text-anchor="middle" font-family="Inter" font-weight="700" font-size="11.5" letter-spacing="1.1" fill="var(--azul)">RECUPERADO</text>
           </g>
           <g class="gota st2">
             <rect x="324" y="140" width="106" height="60" rx="6" fill="none" stroke="var(--azul)" stroke-width="2"/>
             <path d="M340 160 h58 M340 172 h58 M340 184 h34" stroke="var(--azul)" stroke-width="2" opacity=".42" stroke-linecap="round"/>
-            <text x="377" y="216" text-anchor="middle" font-family="Inter" font-weight="700" font-size="9" letter-spacing="1.3" fill="var(--azul)">EXPEDIENTE</text>
+            <text x="377" y="216" text-anchor="middle" font-family="Inter" font-weight="700" font-size="11.5" letter-spacing="1.3" fill="var(--azul)">EXPEDIENTE</text>
           </g>
         </svg>
       </div></div>
@@ -710,7 +709,7 @@ b,strong{font-weight:600}
             <rect x="40" y="98" width="122" height="94" rx="3" fill="none" stroke="var(--azul)" stroke-width="2"/>
           </g>
           <rect x="26" y="198" width="150" height="11" rx="3" fill="var(--azul)"/>
-          <text x="101" y="228" text-anchor="middle" font-family="Inter" font-weight="700" font-size="9" letter-spacing="1.5" fill="var(--azul)" opacity=".6">INVENTARIO</text>
+          <text x="101" y="228" text-anchor="middle" font-family="Inter" font-weight="700" font-size="11.5" letter-spacing="1.5" fill="var(--azul)" opacity=".6">INVENTARIO</text>
           <path class="trazar" style="--len:66" d="M196 121 H262" fill="none" stroke="var(--azul)" stroke-width="1.8" opacity=".35"/>
           <path d="M262 121 l-9 -6 M262 121 l-9 6" stroke="var(--azul)" stroke-width="1.8" fill="none" opacity=".35" stroke-linecap="round"/>
           <g>
@@ -725,7 +724,7 @@ b,strong{font-weight:600}
             <circle cx="374" cy="168" r="23" fill="var(--azul)"/>
             <path d="M363 168 l7 7 l14 -15" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
           </g>
-          <text x="340" y="228" text-anchor="middle" font-family="Inter" font-weight="700" font-size="9" letter-spacing="1.5" fill="var(--azul)" opacity=".6">EXPEDIENTE</text>
+          <text x="340" y="228" text-anchor="middle" font-family="Inter" font-weight="700" font-size="11.5" letter-spacing="1.5" fill="var(--azul)" opacity=".6">EXPEDIENTE</text>
         </svg>
       </div></div>
 </div>
@@ -749,14 +748,14 @@ b,strong{font-weight:600}
   </div>
   <div class="viz r d4"><div class="stage">
         <svg viewBox="0 0 440 250" role="img" aria-label="Primero se dictamina y después se ejecuta el descargo">
-          <text x="24" y="40" font-family="Inter" font-weight="700" font-size="9.5" letter-spacing="1.6" fill="var(--azul)" opacity=".62">SALDO IMMEX</text>
+          <text x="24" y="40" font-family="Inter" font-weight="700" font-size="11" letter-spacing="1.6" fill="var(--azul)" opacity=".62">SALDO IMMEX</text>
           <rect x="24" y="54" width="392" height="26" rx="4" fill="var(--azul)" opacity=".12"/>
           <rect class="vaciar" x="24" y="54" width="392" height="26" rx="4" fill="var(--azul)"/>
           <rect x="24" y="54" width="392" height="26" rx="4" fill="none" stroke="var(--azul)" stroke-width="1.6" opacity=".5"/>
           <g>
             <rect x="24" y="112" width="126" height="106" rx="6" fill="none" stroke="var(--azul)" stroke-width="2.2"/>
             <path d="M42 142 h90 M42 160 h90 M42 178 h54" stroke="var(--azul)" stroke-width="2" opacity=".34" stroke-linecap="round"/>
-            <text x="87" y="238" text-anchor="middle" font-family="Inter" font-weight="700" font-size="9" letter-spacing="1.4" fill="var(--azul)" opacity=".6">DICTAMEN</text>
+            <text x="87" y="238" text-anchor="middle" font-family="Inter" font-weight="700" font-size="11.5" letter-spacing="1.4" fill="var(--azul)" opacity=".6">DICTAMEN</text>
             <g class="sellar">
               <circle cx="132" cy="200" r="15" fill="var(--azul)"/>
               <path d="M125 200 l5 5 l9 -10" stroke="#fff" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
@@ -765,11 +764,11 @@ b,strong{font-weight:600}
           <path class="trazar" style="--len:52" d="M162 165 H214" fill="none" stroke="var(--azul)" stroke-width="1.8" opacity=".35"/>
           <path d="M214 165 l-8 -6 M214 165 l-8 6" stroke="var(--azul)" stroke-width="1.8" fill="none" opacity=".35" stroke-linecap="round"/>
           <path d="M330 106 v112" stroke="var(--azul)" stroke-width="1.8" stroke-dasharray="6 8" opacity=".45"/>
-          <text x="330" y="238" text-anchor="middle" font-family="Inter" font-weight="700" font-size="9" letter-spacing="1.4" fill="var(--azul)" opacity=".5">TEMPORALIDAD</text>
+          <text x="330" y="238" text-anchor="middle" font-family="Inter" font-weight="700" font-size="11.5" letter-spacing="1.4" fill="var(--azul)" opacity=".5">TEMPORALIDAD</text>
           <g class="converger" style="--fx:-62px">
             <rect x="248" y="136" width="80" height="58" rx="5" fill="var(--azul)" opacity=".22"/>
             <rect x="248" y="136" width="80" height="58" rx="5" fill="none" stroke="var(--azul)" stroke-width="2.2"/>
-            <text x="288" y="170" text-anchor="middle" font-family="Inter" font-weight="700" font-size="9.5" letter-spacing="1.2" fill="var(--azul)">MERMA</text>
+            <text x="288" y="170" text-anchor="middle" font-family="Inter" font-weight="700" font-size="11" letter-spacing="1.2" fill="var(--azul)">MERMA</text>
           </g>
           <g class="sellar st1">
             <circle cx="386" cy="165" r="20" fill="var(--azul)"/>
@@ -800,7 +799,7 @@ b,strong{font-weight:600}
         <svg viewBox="0 0 440 240" role="img" aria-label="Recolección recurrente con seguimiento en aplicación">
           <rect x="34" y="70" width="106" height="112" rx="5" fill="none" stroke="var(--azul)" stroke-width="2.4"/>
           <rect class="llenar" x="40" y="76" width="94" height="100" rx="3" fill="var(--azul)" opacity=".3"/>
-          <text x="87" y="204" text-anchor="middle" font-family="Inter" font-weight="700" font-size="9" letter-spacing="1.4" fill="var(--azul)" opacity=".6">TU PLANTA</text>
+          <text x="87" y="204" text-anchor="middle" font-family="Inter" font-weight="700" font-size="11.5" letter-spacing="1.4" fill="var(--azul)" opacity=".6">TU PLANTA</text>
           <path d="M20 182 H310" stroke="var(--azul)" stroke-width="1.6" opacity=".22"/>
           <g class="rondar">
             <rect x="182" y="106" width="88" height="52" rx="4" fill="var(--azul)" opacity=".16"/>
@@ -818,7 +817,7 @@ b,strong{font-weight:600}
             <circle cx="404" cy="170" r="13" fill="var(--azul)"/>
             <path d="M398 170 l4 5 l8 -9" stroke="#fff" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
           </g>
-          <text x="382" y="208" text-anchor="middle" font-family="Inter" font-weight="700" font-size="9" letter-spacing="1.4" fill="var(--azul)" opacity=".6">SEGUIMIENTO</text>
+          <text x="382" y="208" text-anchor="middle" font-family="Inter" font-weight="700" font-size="11.5" letter-spacing="1.4" fill="var(--azul)" opacity=".6">SEGUIMIENTO</text>
         </svg>
       </div></div>
 </div>
@@ -924,7 +923,7 @@ b,strong{font-weight:600}
             <circle class="alcance st2" cx="210" cy="180" r="124" fill="none" stroke="var(--blanco)" stroke-width="1.7"/>
           </g>
           <circle cx="210" cy="180" r="8" fill="var(--blanco)"/>
-          <text x="222" y="184" font-family="Inter" font-weight="800" font-size="9.5" letter-spacing="1.4" fill="var(--blanco)">JALISCO</text>
+          <text x="222" y="184" font-family="Inter" font-weight="800" font-size="11" letter-spacing="1.4" fill="var(--blanco)">JALISCO</text>
         </svg>
         <span class="cap" style="opacity:.72">operamos en toda la república</span>
       </div></div>

@@ -128,3 +128,17 @@ python3 ~/.claude/skills/presentacion-web/scripts/embed_fonts.py --html index.ht
   (`horizontal-claro`, `horizontal-blanco`, `isotipo-verde`, `isotipo-blanco`, `favicon-64`)
 
 Paleta: verde `#2DA761`, oscuro `#171A1F`, claro `#F5F7FA`. Barlow (títulos) + Inter (cuerpo).
+
+## Escala de texto chico
+
+Todo el texto pequeño del deck usa **dos escalones únicos**. Si agregas contenido, reúsalos
+en lugar de inventar un tamaño nuevo — así no vuelve a pasar que dos láminas muestren el
+mismo tipo de texto en tamaños distintos:
+
+| Escalón | Regla | @1440 | Para qué |
+|---|---|---|---|
+| Etiqueta | `clamp(11px,.9vw,13.5px)` | 13.0 px | eyebrows, pies de ilustración, "volver", números de tarjeta |
+| Cuerpo | `clamp(12px,1.02vw,16px)` | 14.7 px | descripciones de tarjeta, listas, etiquetas de dato |
+
+El mínimo absoluto del deck es **13.0 px**. Las etiquetas dentro de los SVG están en unidades
+de viewBox y se renderizan entre 14 y 15 px reales.
