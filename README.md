@@ -57,6 +57,32 @@ Se aplican a todas las láminas y conviene respetarlas al editar:
 6. **Sin nombres de presentador**, para que la pueda dar cualquiera del equipo.
 7. **No se nombra a ningún cliente.**
 
+## Layout de las láminas de servicio
+
+Las láminas con tres tarjetas (02, 05, 06, 07, 10) usan esta estructura, de arriba abajo:
+
+1. **Título** a lo ancho, arriba.
+2. **La frase** protagonista, también a lo ancho.
+3. **Subdivisión:** a la izquierda las tres tarjetas apiladas (etiqueta a la izquierda,
+   texto a la derecha); a la derecha la ilustración, alineada más abajo.
+
+## Fotografía
+
+Cinco fotos reales empotradas en base64, optimizadas a 1280 px (52% de calidad para las de
+fondo, que van bajo un velo oscuro; 1500 px al 86% para la captura de la app):
+
+| Lámina | Foto | Cómo entra |
+|---|---|---|
+| 01 Portada | Proceso en planta | Fondo completo con velo oscuro |
+| 08 Antes/durante/después | Recolección en el andén del cliente | Fondo completo (esta lámina pasó de verde a oscura) |
+| 09 Nuestros expedientes | Captura del acta en la plataforma | Enmarcada, en la columna derecha |
+| 11 Queremos saber de ustedes | Almacén del cliente con inventario | Fondo completo |
+| 12 Cierre | Equipo operando | Fondo completo |
+
+Los originales quedan en `fotos/`, las versiones optimizadas en `fotos/opt/`.
+Para cambiar una foto: reemplaza el archivo en `fotos/`, corre el optimizador y vuelve a
+embeber (ver el commit correspondiente para el script).
+
 ## Ilustraciones
 
 Librería de animaciones propia (no genérica), cada una es el *verbo* de su lámina:
