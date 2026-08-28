@@ -170,3 +170,23 @@ mismo tipo de texto en tamaños distintos:
 
 El mínimo absoluto del deck es **13.0 px**. Las etiquetas dentro de los SVG están en unidades
 de viewBox y se renderizan entre 14 y 15 px reales.
+
+## PDF
+
+`RECYMEX - Presentacion.pdf` — las 12 láminas en 16:9 (13.33 x 7.5 in), ~1 MB. Para mandar por
+WhatsApp o correo cuando el link no es opción: hay redes corporativas que bloquean `github.io`
+por tratarlo como dominio sin categorizar.
+
+Pierde las animaciones y el salto ramificado de la lámina 04. Para presentar en vivo, el link.
+
+**Cómo regenerarlo** después de cambiar el deck (requiere Chrome instalado):
+
+```bash
+# 1. capturar las 12 láminas con las animaciones congeladas
+#    (el script inyecta salto por #hash y animation:none en una copia temporal)
+# 2. armarlas en PDF con PyMuPDF a 960x540 pt
+```
+
+El deck también trae `@media print`, así que un Cmd+P desde el navegador saca las 12 páginas
+directo. Ojo: en impresión Chrome reparte la altura distinto y queda más aire abajo que en el
+PDF de capturas. Para mandar a clientes, usa el PDF.

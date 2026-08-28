@@ -606,6 +606,47 @@ b,strong{font-weight:600}
   #nav{height:26px}
 }
 
+
+/* ===== IMPRESIÓN / PDF =====
+   Cmd+P sobre el deck saca las 12 láminas como 12 páginas en 16:9.
+   En el diálogo de impresión: activar "Gráficos de fondo" y dejar márgenes en Ninguno. */
+@page{size:13.333in 7.5in;margin:0}
+@media print{
+  html,body{height:auto;overflow:visible;background:#fff;
+    -webkit-print-color-adjust:exact;print-color-adjust:exact}
+  *{-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important;
+    animation:none!important;transition:none!important}
+  #deck{position:static;inset:auto}
+  /* cada lámina es una página completa, todas visibles */
+  .s{position:relative;inset:auto;width:13.333in;height:7.5in;
+     opacity:1!important;visibility:visible!important;
+     break-after:page;page-break-after:always;overflow:hidden}
+  .s:last-child{break-after:auto;page-break-after:auto}
+  /* las entradas escalonadas se congelan en su estado final */
+  .r{opacity:1!important;transform:none!important}
+  /* cromo de navegación fuera */
+  #nav,#hint,.arrow,.back{display:none!important}
+  /* el trazo que se dibuja queda dibujado */
+  .trazar{stroke-dasharray:none!important;stroke-dashoffset:0!important}
+  /* en impresión se fuerza el arreglo de escritorio, sin importar qué corte gane */
+  .abajo{grid-template-columns:1.06fr .94fr!important;align-items:center!important;gap:2.6vw!important}
+  .abajo .viz{align-self:center!important}
+  .split,.split.narrow{grid-template-columns:1fr 1fr!important}
+  .split.ancha{grid-template-columns:.72fr 1.28fr!important}
+  .hub{grid-template-columns:repeat(3,1fr)!important}
+  .tarjetas{grid-template-columns:repeat(3,1fr)!important}
+  .tarjetas.una{grid-template-columns:1fr!important}
+  .tarjetas.cuatro,.badges.cuatro,.stats.cuatro{grid-template-columns:repeat(4,1fr)!important}
+  .flow,.srcs{grid-template-columns:repeat(3,1fr)!important}
+  .pact{grid-template-columns:1fr 1fr!important}
+  .tarjetas.una .tj{flex-direction:column!important}
+  .tarjetas.una .tj .tjk{flex:none!important}
+  #proceso::before{background-size:cover!important;background-position:50% 38%!important}
+  #proceso .tarjetas{margin-top:0!important}
+  .viz svg{max-height:none}
+  .marco{box-shadow:none}
+}
+
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation:none!important;transition:opacity .2s!important}
   .r{opacity:1;transform:none}
