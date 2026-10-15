@@ -190,3 +190,47 @@ Pierde las animaciones y el salto ramificado de la lámina 04. Para presentar en
 El deck también trae `@media print`, así que un Cmd+P desde el navegador saca las 12 páginas
 directo. Ojo: en impresión Chrome reparte la altura distinto y queda más aire abajo que en el
 PDF de capturas. Para mandar a clientes, usa el PDF.
+
+## Bilingüe ES · EN
+
+Selector arriba al centro en las 12 láminas. Cambia todo al instante, sin recargar, y toma el
+color de cada lámina (oscuro sobre fondo claro, blanco sobre oscuro y sobre verde).
+
+- **Idioma de entrada:** español.
+- **`?lang=en`** abre directo en inglés — útil para mandar el link a un corporativo extranjero
+  sin que tengan que buscar el botón: `https://deck.recymex.mx/?lang=en`
+- La elección se recuerda en el navegador de quien lo vea.
+- En impresión y en el PDF el selector se oculta.
+
+**Cómo está armado.** Tres mecanismos, porque el deck tiene tres tipos de texto:
+
+1. `DICT` — textos sueltos, empatados por su texto normalizado. Cubre tarjetas, listas,
+   eyebrows y pies.
+2. `BLOCKS` — elementos con `data-i18n` cuyo innerHTML se reemplaza completo. Son los dos
+   títulos que llevan `<span>` de color adentro (portada y cierre); si se tradujeran por
+   partes, la frase quedaría cortada a media oración.
+3. Los `<text>` de los SVG se cambian con `textContent`, no con `innerHTML`.
+
+**Si agregas o cambias texto**, hay que agregar el par al diccionario. Para sacar las llaves
+exactas sin adivinar, sirve el deck y corre el extractor de
+`~/.claude/skills/presentacion-web/references/i18n.md` en la consola del navegador.
+
+**Glosario fijado** (términos que no se traducen literal):
+
+| Español | Inglés |
+|---|---|
+| Destrucción fiscal | Tax-Compliant Destruction |
+| Residuos IMMEX | IMMEX Waste |
+| Gestión de residuos | Waste Management |
+| Expediente | Case file |
+| Fecha cierta | Legal date certainty |
+| Cadena de custodia | Chain of custody |
+| Manifiestos de disposición final | Final disposal manifests |
+| Gestores autorizados | Licensed handlers |
+| Merma | Scrap |
+| Temporalidad | Import term |
+| Dictamen | Assessment |
+| Corresponsabilidad solidaria | Joint liability |
+| Pedimentos | Customs declarations |
+| Fracción arancelaria | Tariff classification |
+| Cartas de deslinde | Release letters |

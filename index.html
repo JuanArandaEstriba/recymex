@@ -556,6 +556,9 @@ b,strong{font-weight:600}
 
 /* ===== AJUSTES SOLO PARA CELULAR EN VERTICAL ===== */
 @media (max-width:900px) and (orientation:portrait){
+  /* el selector de idioma necesita su propia banda arriba, si no roza el eyebrow */
+  .s{padding-top:calc(var(--gut) + 20px)}
+  #lang{top:9px}
   /* portada: había espacio de sobra y el título quedaba en el mínimo del clamp */
   .s.cover .disp.xs{font-size:clamp(29px,8.2vw,42px)}
   /* la foto de la 08 es horizontal: al recortarla a vertical se perdía a la persona */
@@ -590,7 +593,14 @@ b,strong{font-weight:600}
 
 /* ===== TELÉFONOS ANGOSTOS: comprime lo que todavía no cabe ===== */
 @media (max-width:430px){
-  .viz svg{max-height:26vh}
+  /* se recupera el alto que consumió la banda del selector de idioma */
+  .s{padding-top:calc(var(--gut) + 12px)}
+  .hub{gap:8px}
+  .hcard{padding:10px 13px;gap:.3em}
+  .hgl{width:28px;height:28px;margin-bottom:0}
+  /* en pantalla chica la tarjeta completa ya es tocable: el "Ver" sobra */
+  .hcard .hgo{display:none}
+  .viz svg{max-height:23vh}
   .tj{padding:clamp(11px,3.4vw,16px) clamp(12px,3.6vw,17px)}
   .tarjetas,.tarjetas.una,.tarjetas.dos,.tarjetas.cuatro,.badges.cuatro{gap:9px}
   .stats,.stats.cuatro{gap:11px}
@@ -674,7 +684,7 @@ b,strong{font-weight:600}
   <div class="logobox r d1"><span class="logo blanco" role="img" aria-label="RECYMEX®"></span></div>
   <div>
     <span class="eyebrow r d2" style="display:block;margin-bottom:1em;color:var(--tenue)">Destrucción fiscal · Residuos IMMEX · Gestión de residuos</span>
-    <h1 class="disp xs r d3" style="max-width:24ch">Soluciones integrales en <span style="color:var(--azul)">manejo y destrucción de residuos</span> en México.</h1>
+    <h1 data-i18n="portada" class="disp xs r d3" style="max-width:24ch">Soluciones integrales en <span style="color:var(--azul)">manejo y destrucción de residuos</span> en México.</h1>
   </div>
   <div class="row r d5">
     <div class="lede" style="opacity:.62;max-width:36ch">Nos hacemos cargo del material, de la logística, de la disposición final y del respaldo.</div>
@@ -1074,7 +1084,7 @@ b,strong{font-weight:600}
   <div class="logobox r d1"><span class="logo blanco" role="img" aria-label="RECYMEX®"></span></div>
   <div>
     <span class="eyebrow r d2" style="display:block;margin-bottom:.9em;color:var(--tenue)">Siguientes pasos</span>
-    <h2 class="disp md r d3" style="max-width:20ch">Mándanos la información y <span style="color:var(--azul)">te cotizamos.</span></h2>
+    <h2 data-i18n="cierre" class="disp md r d3" style="max-width:20ch">Mándanos la información y <span style="color:var(--azul)">te cotizamos.</span></h2>
     <p class="lede r d5" style="margin-top:1em;opacity:.72;max-width:46ch">Con la información completa, nuestra cotización toma de <b>5 a 15 días</b>. Te entregamos también un ejemplo real de expediente para que veas qué recibes.</p>
   </div>
   <div class="row r d7">
@@ -1125,7 +1135,8 @@ b,strong{font-weight:600}
     dotEls.forEach(function(d,k){d.classList.toggle('on',k===i)});
     var nav=document.getElementById('nav');
     var dark=s.classList.contains('tinta'), acc=s.classList.contains('azul');
-    [nav,hint].forEach(function(el){
+    [nav,hint,document.getElementById('lang')].forEach(function(el){
+      if(!el) return;
       el.classList.toggle('onDark',dark);
       el.classList.toggle('onAccent',acc);
     });
@@ -1155,6 +1166,229 @@ b,strong{font-weight:600}
   go(0);
 })();
 </script>
-<!-- BILINGÜE (opcional): pega aquí el <script> de assets/i18n-snippet.js con el diccionario lleno. Ver references/i18n.md -->
+<script>
+/* =============================================================
+   SELECTOR DE IDIOMA ES · EN
+   - DICT: textos sueltos, empatados por su texto normalizado.
+   - BLOCKS: elementos con data-i18n, se reemplaza el innerHTML completo
+     (para los títulos que llevan <span> de color adentro).
+   - Los <text> de los SVG se cambian con textContent, no innerHTML.
+   - ?lang=en abre directo en inglés; la elección se recuerda.
+   ============================================================= */
+(function(){
+  var DICT = {
+"Destrucción fiscal · Residuos IMMEX · Gestión de residuos":"Tax-Compliant Destruction · IMMEX Waste · Waste Management",
+"Nos hacemos cargo del material, de la logística, de la disposición final y del respaldo.":"We handle the material, the logistics, the final disposal, and the paperwork that backs it up.",
+
+"Qué hacemos":"What we do",
+"Una solución integral, de principio a fin.":"A complete solution, start to finish.",
+"Tu material sale de tu planta y regresa convertido en un expediente que sostiene la operación ante quien te pregunte.":"Your material leaves your plant and comes back as <b>documentation that holds up</b> to anyone who asks.",
+"Certeza jurídica":"Legal certainty",
+"Cada paso con sustento legal y documentado.":"Every step documented and legally grounded.",
+"Certeza financiera":"Financial certainty",
+"Recuperas valor y deduces lo que corresponde.":"You recover value and deduct what you're entitled to.",
+"Un solo responsable":"One accountable partner",
+"De tu planta a la disposición final. Nosotros.":"From your plant to final disposal. All of it, us.",
+"INVENTARIO":"INVENTORY",
+"MERMA IMMEX":"IMMEX SCRAP",
+"RESIDUOS":"WASTE",
+"VALOR":"RECOVERED",
+"RECUPERADO":"VALUE",
+"EXPEDIENTE":"CASE FILE",
+"entra el material · sale resuelto":"material in · resolved out",
+
+"Con qué respaldo":"What backs us",
+"Autorizaciones, permisos y equipo propio.":"Licenses, permits, and an in-house team.",
+"Programa IMMEX":"IMMEX Program",
+"Manufactura, maquila y exportación":"Manufacturing, maquiladora, and export",
+"Certificación IVA e IEPS":"VAT & IEPS Certification",
+"Registro de empresas certificadas":"Certified Companies Registry",
+"Permisos ambientales":"Environmental permits",
+"Recolección, tratamiento y disposición final":"Collection, treatment, and final disposal",
+"Equipo legal especializado":"In-house legal team",
+"Acompañamiento fiscal y normativo propio":"Our own tax and regulatory counsel",
+"Tipos de residuo autorizados":"Authorized waste types",
+"Toneladas tratadas":"Tons processed",
+"Generadores atendidos":"Waste generators served",
+"De vuelta a economía circular":"Back into the circular economy",
+
+"Nuestros servicios":"Our services",
+"¿Cuál es tu caso?":"What's your situation?",
+"Destrucción fiscal":"Tax-Compliant Destruction",
+"\"Tengo inventario que ya no se mueve.\"":"\"I have inventory that isn't moving.\"",
+"Lo destruimos con toda la normativa y lo deduces de impuestos.":"We destroy it in full compliance, and you write it off.",
+"Ver":"View",
+"Residuos IMMEX":"IMMEX Waste",
+"\"Tengo saldo de importación temporal.\"":"\"I have a temporary import balance.\"",
+"Bajamos el saldo con estudio previo y sustento jurídico.":"We clear the balance with a feasibility study and legal grounding.",
+"Gestión de residuos":"Waste Management",
+"\"Se me acumulan los residuos.\"":"\"My waste keeps piling up.\"",
+"Recolección y disposición con todos los permisos en regla.":"Collection and disposal <b>with every permit in order</b>.",
+
+"Servicios":"Services",
+"Servicio 01":"Service 01",
+"Liberas almacén, lo sacas de tus libros y lo deduces de impuestos.":"You free up the warehouse, clear it off your books, and <b>write it off</b>.",
+"Nos encargamos de todo":"We handle everything",
+"De tu planta a la disposición final. Tú no mueves nada.":"From your plant to final disposal. You don't lift a finger.",
+"Acompañamiento legal":"Legal counsel throughout",
+"Un abogado contigo todo el proceso, hasta tu declaración anual.":"An attorney with you through the entire process, right through your annual return.",
+"Expediente completo":"Complete case file",
+"Hasta 400 hojas de cadena de custodia. Lleva aviso previo a la autoridad, normalmente 30 días.":"Up to 400 pages of chain of custody. Requires advance notice to the authority, typically 30 days.",
+"se destruye · se documenta · se deduce":"destroyed · documented · deducted",
+
+"Servicio 02":"Service 02",
+"Bajas el saldo de tu importación temporal con sustento jurídico.":"You clear your temporary import balance <b>on solid legal ground</b>.",
+"Estudio previo":"Feasibility study first",
+"Antes de ejecutar dictaminamos factibilidad y viabilidad, con sustento legal en cada opción.":"Before we execute, we rule on feasibility and viability, with legal grounding for every option.",
+"Comercio exterior":"Foreign trade desk",
+"Pedimentos, fracción arancelaria, unidad de medida y temporalidad. Lo revisamos nosotros.":"Customs declarations, tariff classification, unit of measure, and import term. We review all of it.",
+"Certificación propia":"Certified in our own right",
+"Empresa IMMEX con certificación IVA-IEPS. La corresponsabilidad solidaria la asumimos.":"An IMMEX company with VAT-IEPS certification. We take the joint liability on ourselves.",
+"SALDO IMMEX":"IMMEX BALANCE",
+"DICTAMEN":"ASSESSMENT",
+"TEMPORALIDAD":"IMPORT TERM",
+"MERMA":"SCRAP",
+"primero se dictamina · después se ejecuta":"assess first · execute second",
+
+"Servicio 03":"Service 03",
+"La frecuencia que necesites":"Whatever frequency you need",
+"Diaria, semanal, periódica o mensual. Tenemos el equipo para sostenerla.":"Daily, weekly, scheduled, or monthly. We have the crew and equipment to sustain it.",
+"Aplicación de seguimiento":"Tracking app",
+"Consultas evidencia, reportes y manifiestos de cada recolección.":"Pull up evidence, reports, and manifests for every pickup.",
+"Manejo correcto":"Handled properly",
+"Tratamiento y disposición final conforme a norma, con manifiesto de cada entrega.":"Treatment and final disposal to regulation, with a manifest for every load.",
+"TU PLANTA":"YOUR PLANT",
+"SEGUIMIENTO":"TRACKING",
+"recolectamos · disponemos · lo compruebas":"we collect · we dispose · you verify",
+
+"Cómo trabajamos":"How we work",
+"Antes, durante y después. Las tres las llevamos nosotros.":"Before, during, and after. We run all three.",
+"ANTES":"BEFORE",
+"Planeación":"Planning",
+"Revisión de inventario y documentos, análisis de viabilidad, cotización, contrato y el trámite ante la autoridad si aplica.":"Inventory and document review, feasibility analysis, quote, contract, and the filing with the authority when it applies.",
+"DURANTE":"DURING",
+"Ejecución":"Execution",
+"Arranca el proceso: recolección, actas, transporte, destrucción y actas de destrucción.":"The process begins: pickup, records, transport, destruction, and destruction records.",
+"DESPUÉS":"AFTER",
+"Documentación":"Documentation",
+"Expediente completo, cartas de deslinde y seguimiento hasta la deducción.":"Complete case file, release letters, and follow-through to the deduction.",
+
+"Qué te entregamos":"What you get",
+"Nuestros expedientes.":"Our case files.",
+"Actas y certificado de destrucción":"Records and certificate of destruction",
+"Firmas con fecha cierta":"Signatures with <b>legal date certainty</b>",
+"Pruebas de trazabilidad y cadena de custodia":"Traceability evidence and <b>chain of custody</b>",
+"Manifiestos de disposición final":"Final disposal manifests",
+"Ticket de báscula y carta porte":"Scale tickets and bill of lading",
+"Acceso en línea a toda la evidencia":"Online access to every piece of evidence",
+"cada acta, en línea y con evidencia":"every record, online, with evidence",
+
+"Cobertura":"Coverage",
+"Alcance nacional.":"Nationwide reach.",
+"Cada destrucción y cada ruta de recolección se diseña para tu caso.":"Every destruction and every collection route <b>is built around your case</b>.",
+"Equipo propio":"Our own crew",
+"Te decimos quién va a tu planta antes de firmar.":"We tell you who's coming to your plant before you sign.",
+"Gestores autorizados":"Licensed handlers",
+"Donde no llegamos directo, operamos con gestores autorizados: transporte, tratamiento o destino final.":"Where we don't reach directly, we work through licensed handlers: transport, treatment, or final destination.",
+"Responsabilidad nuestra":"The liability stays with us",
+"La mantenemos hasta el destino final. No se diluye en la cadena.":"We hold it through to final disposal. It doesn't get diluted down the chain.",
+"operamos en toda la república":"we operate nationwide",
+
+"Ahora ustedes":"Now you",
+"Queremos saber de ustedes.":"Now tell us about you.",
+"Ya hablamos de nosotros. Cuéntennos su caso y de ahí armamos la propuesta.":"That's us. Tell us about your case and we'll build the proposal from there.",
+"El material":"The material",
+"Qué es y cómo viene.":"What it is and how it's packed.",
+"El volumen":"The volume",
+"Cantidad, peso o medidas.":"Quantity, weight, or dimensions.",
+"La ubicación":"The location",
+"Dónde está y cómo se accede.":"Where it is and how to get in.",
+"El objetivo":"The goal",
+"Qué necesitan resolver.":"What you need solved.",
+
+"Siguientes pasos":"Next steps",
+"Con la información completa, nuestra cotización toma de 5 a 15 días. Te entregamos también un ejemplo real de expediente para que veas qué recibes.":"With complete information, our quote takes <b>5 to 15 days</b>. We'll also send you a real sample case file so you can see exactly what you receive."
+  };
+
+  var BLOCKS = {
+    portada: 'End-to-end <span style="color:var(--azul)">waste management and destruction</span> in Mexico.',
+    cierre:  'Send us the details and <span style="color:var(--azul)">we\'ll quote it.</span>'
+  };
+
+  var HINT = { es:'← → para navegar', en:'← → to navigate' };
+  var SVGNS = 'http://www.w3.org/2000/svg';
+  var ALLOW = {B:1,EM:1,BR:1,STRONG:1,I:1};
+  function norm(s){ return (s||'').replace(/\s+/g,' ').trim(); }
+  function isLeaf(el){ var c=el.children; for(var j=0;j<c.length;j++){ if(!ALLOW[c[j].tagName]) return false; } return true; }
+
+  var nodes = [], all = document.querySelectorAll('#deck *'), el, t, i;
+  for (i=0;i<all.length;i++){
+    el = all[i];
+    if (el.hasAttribute && el.hasAttribute('data-i18n')) continue;
+    if (el.closest && el.closest('[data-i18n]')) continue;
+    if (ALLOW[el.tagName] || el.tagName==='IMG') continue;
+    if (!isLeaf(el)) continue;
+    t = norm(el.textContent);
+    if (!t || !Object.prototype.hasOwnProperty.call(DICT,t)) continue;
+    nodes.push({ el: el, es: el.innerHTML, en: DICT[t], svg: el.namespaceURI===SVGNS });
+  }
+  var bloques = [];
+  document.querySelectorAll('#deck [data-i18n]').forEach(function(b){
+    var k = b.getAttribute('data-i18n');
+    if (BLOCKS[k]) bloques.push({ el:b, es:b.innerHTML, en:BLOCKS[k] });
+  });
+
+  var st = document.createElement('style');
+  st.textContent =
+    '#lang{position:fixed;top:clamp(9px,1.9vh,18px);left:50%;transform:translateX(-50%);z-index:40;'
+    +'display:flex;align-items:center;gap:7px;pointer-events:auto;color:var(--tinta);'
+    +"font-family:'Inter',system-ui,sans-serif;line-height:1;transition:color .3s}"
+    +'#lang.onDark,#lang.onAccent{color:#fff}'
+    +'#lang button{background:none;border:none;cursor:pointer;color:currentColor;opacity:.4;'
+    +'font-family:inherit;font-size:clamp(10px,.84vw,12px);font-weight:700;letter-spacing:.16em;'
+    +'padding:6px 4px;transition:opacity .2s}'
+    +'#lang button.on{opacity:1}#lang button:hover{opacity:.78}'
+    +'#lang .sep{opacity:.32;font-size:clamp(10px,.84vw,12px)}'
+    +'#lang button:focus-visible{outline:2px solid currentColor;outline-offset:2px;border-radius:3px}'
+    +'@media print{#lang{display:none!important}}';
+  document.head.appendChild(st);
+
+  var wrap = document.createElement('div'); wrap.id='lang';
+  var bEs = document.createElement('button'); bEs.type='button'; bEs.textContent='ES'; bEs.setAttribute('aria-label','Español');
+  var sep = document.createElement('span'); sep.className='sep'; sep.textContent='·';
+  var bEn = document.createElement('button'); bEn.type='button'; bEn.textContent='EN'; bEn.setAttribute('aria-label','English');
+  wrap.appendChild(bEs); wrap.appendChild(sep); wrap.appendChild(bEn);
+  document.body.appendChild(wrap);
+  var nav = document.getElementById('nav');
+  if (nav){ wrap.classList.toggle('onDark', nav.classList.contains('onDark'));
+            wrap.classList.toggle('onAccent', nav.classList.contains('onAccent')); }
+
+  var hintEl = document.getElementById('hint');
+  function aplicar(lang){
+    var k = (lang==='en') ? 'en' : 'es';
+    document.documentElement.lang = k;
+    for (var n=0;n<nodes.length;n++){
+      var o = nodes[n];
+      if (o.svg) o.el.textContent = (k==='en') ? o.en.replace(/<[^>]+>/g,'') : o.es.replace(/<[^>]+>/g,'');
+      else o.el.innerHTML = o[k];
+    }
+    for (var m=0;m<bloques.length;m++){ bloques[m].el.innerHTML = bloques[m][k]; }
+    if (hintEl) hintEl.textContent = HINT[k];
+    bEs.classList.toggle('on', k==='es');
+    bEn.classList.toggle('on', k==='en');
+    try { localStorage.setItem('recymex-lang', k); } catch(e){}
+  }
+  bEs.addEventListener('click', function(e){ e.stopPropagation(); aplicar('es'); });
+  bEn.addEventListener('click', function(e){ e.stopPropagation(); aplicar('en'); });
+
+  var inicial = 'es';
+  try {
+    var q = new URLSearchParams(location.search).get('lang');
+    if (q === 'en' || q === 'es') inicial = q;
+    else { var g = localStorage.getItem('recymex-lang'); if (g === 'en' || g === 'es') inicial = g; }
+  } catch(e){}
+  aplicar(inicial);
+})();
+</script>
 </body>
 </html>
